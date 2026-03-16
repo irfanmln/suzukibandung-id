@@ -66,16 +66,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--white);dis
 .why-icon{font-size:44px;}
 
 /* VIDEO */
-.video-section{padding:64px 80px;background:var(--white);}
-.video-section h2{font-size:26px;font-weight:900;letter-spacing:2px;text-transform:uppercase;text-align:center;margin-bottom:40px;}
-.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.video-thumb{position:relative;background:#111;border-radius:4px;overflow:hidden;cursor:pointer;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-decoration:none;}
-.video-thumb:hover .yt-play{transform:scale(1.1);}
-.yt-play{width:60px;height:42px;background:#ff0000;border-radius:10px;display:flex;align-items:center;justify-content:center;z-index:2;transition:transform 0.2s;}
-.yt-play::after{content:'';border-left:20px solid white;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:4px;}
-.video-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.55);padding:7px 12px;color:white;font-size:12px;font-weight:600;text-align:center;}
-.video-label{position:absolute;top:0;left:0;right:0;background:rgba(255,255,255,0.92);padding:6px 10px;font-size:12px;font-weight:600;color:#333;display:flex;align-items:center;gap:8px;}
-.yt-badge{background:#ff0000;color:white;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;}
+.delivery-section{padding:64px 80px;background:var(--white);}
+.delivery-section h2{font-size:26px;font-weight:900;letter-spacing:2px;text-transform:uppercase;text-align:center;margin-bottom:8px;}
+.delivery-subtitle{text-align:center;font-size:14px;color:#888;margin-bottom:40px;font-weight:500;}
+.delivery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.delivery-item{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;background:#f0f0f0;cursor:pointer;}
+.delivery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
+.delivery-item:hover img{transform:scale(1.05);}
+.delivery-empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:#bbb;font-size:14px;}
+/* Lightbox */
+.lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;align-items:center;justify-content:center;}
+.lb-overlay.open{display:flex;}
+.lb-img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px;}
+.lb-close{position:absolute;top:20px;right:28px;color:#fff;font-size:36px;cursor:pointer;line-height:1;z-index:10000;}
+@media(max-width:768px){
+  .delivery-section{padding:40px 20px;}
+  .delivery-grid{grid-template-columns:1fr 1fr;}
+}
 
 /* CTA */
 .cta-banner{position:relative;padding:80px 40px;background:linear-gradient(135deg,#0a2573 0%,#1a4fa0 60%,#0d3a8a 100%);text-align:center;}
@@ -132,7 +139,6 @@ footer{background:var(--white);padding:56px 80px 100px;border-top:1px solid #e0e
 @media(max-width:900px){
   .car-grid{grid-template-columns:repeat(2,1fr);}
   .why-grid{grid-template-columns:1fr 1fr;}
-  .video-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:640px){
   nav{padding:0 20px;}
@@ -146,8 +152,6 @@ footer{background:var(--white);padding:56px 80px 100px;border-top:1px solid #e0e
   .car-img-wrap{height:110px;}
   .why-section{padding:48px 20px;}
   .why-grid{grid-template-columns:1fr;}
-  .video-section{padding:40px 20px;}
-  .video-grid{grid-template-columns:1fr;}
   .cta-banner{padding:56px 24px;}
   .cta-content h2{font-size:22px;}
   footer{padding:40px 20px 100px;}
@@ -272,26 +276,19 @@ footer{background:var(--white);padding:56px 80px 100px;border-top:1px solid #e0e
 </section>
 
 <!-- VIDEO GALLERY -->
-<section class="video-section">
-  <h2>GALERI VIDEO SUZUKI</h2>
-  <div class="video-grid">
-    <a href="https://www.youtube.com/watch?v=dRlmMgA3Hn8" target="_blank" class="video-thumb" style="background:#0f0f1a;">
-      <div class="video-label"><span class="yt-badge">▶ YouTube</span> Suzuki Fronx | Adaptive Cruise Control</div>
-      <div class="yt-play"></div>
-      <div class="video-caption">Adaptive Cruise Control (ACC)</div>
-    </a>
-    <a href="https://www.youtube.com/watch?v=mRDt2rKbXcs" target="_blank" class="video-thumb" style="background:#0f1520;">
-      <div class="video-label"><span class="yt-badge">▶ YouTube</span> Suzuki Fronx | Experience</div>
-      <div class="yt-play"></div>
-      <div class="video-caption">Rasakan Pengalaman Fronx</div>
-    </a>
-    <a href="https://www.youtube.com/watch?v=OuE6L8RVe0Q" target="_blank" class="video-thumb" style="background:#0a1505;">
-      <div class="video-label"><span class="yt-badge">▶ YouTube</span> Suzuki New Carry Pick Up</div>
-      <div class="yt-play"></div>
-      <div class="video-caption">New Carry Pick Up</div>
-    </a>
+<section class="delivery-section">
+  <h2>GALERI DELIVERY</h2>
+  <p class="delivery-subtitle">Dokumentasi serah terima kendaraan bersama pelanggan kami</p>
+  <div class="delivery-grid" id="deliveryGrid">
+    <div class="delivery-empty">Memuat foto...</div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lbOverlay" onclick="closeLightbox()">
+  <span class="lb-close" onclick="closeLightbox()">&#x2715;</span>
+  <img class="lb-img" id="lbImg" src="" alt="">
+</div>
 
 <!-- CTA BANNER -->
 <section class="cta-banner">
@@ -593,6 +590,38 @@ async function submitKredit(){
     btn.disabled=false;btn.textContent='KIRIM PERMINTAAN';
   }
 }
+
+// Load delivery photos
+async function loadDeliveryPhotos(){
+  const grid=document.getElementById('deliveryGrid');
+  try{
+    const r=await fetch(SB_URL+'/rest/v1/delivery_photos?order=sort_order,id&select=*',{
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
+    });
+    const rows=await r.json();
+    if(!rows||!rows.length){
+      grid.innerHTML='<div class="delivery-empty">Belum ada foto delivery.</div>';
+      return;
+    }
+    grid.innerHTML=rows.map(p=>`
+      <div class="delivery-item" onclick="openLightbox('${p.image_url}')">
+        <img src="${p.image_url}" alt="Delivery" loading="lazy">
+      </div>`).join('');
+  }catch(e){
+    grid.innerHTML='<div class="delivery-empty">Gagal memuat foto.</div>';
+    console.error('loadDeliveryPhotos:',e);
+  }
+}
+function openLightbox(src){
+  document.getElementById('lbImg').src=src;
+  document.getElementById('lbOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lbOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+loadDeliveryPhotos();
 
 // Load listing images from Supabase
 async function loadListingImages() {
