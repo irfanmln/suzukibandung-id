@@ -25,11 +25,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--white);dis
 .nav-mobile.open{display:block;}
 
 /* HERO SLIDER */
-.hero{position:relative;width:100%;height:calc(100vw * 0.36);max-height:calc(100vh - 68px);min-height:220px;margin-top:68px;overflow:hidden;}
-@media(max-width:768px){
-  .hero{height:calc(100vw * 0.42);min-height:180px;}
-}
-.slides{display:flex;height:100%;transition:transform 0.6s cubic-bezier(.77,0,.18,1);}
+.hero{position:relative;width:100%;margin-top:68px;overflow:hidden;background:#000;line-height:0;}
+.slide{min-width:100%;width:100%;flex-shrink:0;position:relative;}
+.slide img{width:100%;height:auto;display:block;}
+.slides{display:flex;transition:transform 0.6s cubic-bezier(.77,0,.18,1);will-change:transform;}
 .slide{min-width:100%;height:100%;background-size:cover;background-position:center center;position:relative;display:flex;align-items:center;justify-content:center;}
 .hero-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.45);color:white;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:26px;transition:background 0.2s;z-index:10;user-select:none;}
 .hero-arrow:hover{background:rgba(255,255,255,0.28);}
@@ -183,7 +182,7 @@ footer{background:var(--white);padding:56px 80px 100px;border-top:1px solid #e0e
 <section class="hero" id="hero">
   <div class="slides" id="slides">
     <!-- Loaded from Supabase hero_banners -->
-    <div class="slide slide-placeholder" style="background:linear-gradient(160deg,#0a1628 0%,#1c3a6e 45%,#0d3a8a 100%);">
+    <div class="slide slide-placeholder" style="background:linear-gradient(160deg,#0a1628 0%,#1c3a6e 45%,#0d3a8a 100%);height:40vw;min-height:200px;display:flex;align-items:center;justify-content:center;">
       <div class="slide-text">
         <div class="slide-sub">Dealer Resmi</div>
         <div class="slide-title">SUZUKI<br>GEDEBAGE</div>
@@ -507,10 +506,13 @@ async function loadHeroBanners(){
     banners.forEach(b=>{
       const slide=document.createElement('div');
       slide.className='slide';
-      slide.style.backgroundImage=`url(${b.image_url})`;
-      slide.style.backgroundSize='cover';
-      slide.style.backgroundPosition='center center';
-      slide.style.backgroundRepeat='no-repeat';
+      const img=document.createElement('img');
+      img.src=b.image_url;
+      img.alt='Banner';
+      img.style.width='100%';
+      img.style.height='auto';
+      img.style.display='block';
+      slide.appendChild(img);
       slidesEl.appendChild(slide);
     });
     initSlider();
