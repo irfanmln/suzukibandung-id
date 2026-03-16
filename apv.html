@@ -38,11 +38,20 @@ nav{position:fixed;top:0;left:0;width:100%;background:#fff;z-index:1000;box-shad
 .sec-ct h2{font-size:30px;font-weight:800;color:#111;}
 .sec-ct p{margin-top:14px;font-size:15px;line-height:1.8;color:#555;max-width:800px;margin-left:auto;margin-right:auto;}
 .color-sec{padding:40px 40px 60px;text-align:center;}
-.color-main{width:340px;height:230px;object-fit:contain;margin:0 auto 12px;display:block;transition:opacity .3s;}
-.color-lbl{font-size:13px;font-weight:700;letter-spacing:1.5px;color:#333;margin-bottom:22px;}
-.color-thumbs{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
-.color-thumbs img{width:76px;height:52px;object-fit:contain;cursor:pointer;opacity:0.45;transition:opacity .2s;border-bottom:3px solid transparent;padding-bottom:3px;}
-.color-thumbs img.active{opacity:1;border-bottom:3px solid #1a3a8f;}
+.color-sec-title{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#888;margin-bottom:28px;}
+.color-main-wrap{position:relative;width:100%;max-width:420px;height:260px;margin:0 auto 10px;}
+.color-main{width:100%;height:100%;object-fit:contain;display:block;transition:opacity .25s ease;}
+.color-main.fade{opacity:0;}
+.color-lbl{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#222;margin-bottom:16px;min-height:18px;transition:opacity .2s;}
+.ctabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;justify-content:center;}
+.ctab{padding:7px 18px;border:2px solid #1a3a8f;border-radius:20px;background:#fff;color:#1a3a8f;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;}
+.ctab.active,.ctab:hover{background:#1a3a8f;color:#fff;}
+.ctab-panel{display:none;}
+.ctab-panel.active{display:block;}
+.color-swatches{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.color-swatch{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent;outline:3px solid transparent;outline-offset:2px;transition:outline-color .2s, transform .15s;flex-shrink:0;}
+.color-swatch:hover{transform:scale(1.15);}
+.color-swatch.active{outline-color:#1a3a8f;}
 .harga-sec{padding:40px 80px 60px;}
 .harga-sec h2{font-size:22px;font-weight:800;margin-bottom:24px;color:#111;}
 .htable{width:100%;border-collapse:collapse;}
@@ -101,7 +110,6 @@ footer{background:#1a3a8f;color:#fff;padding:50px 80px 90px;}
   .feat-grid{grid-template-columns:1fr;}
   .foot-grid{grid-template-columns:1fr;gap:24px;}
   footer{padding:40px 20px 90px;}
-  .color-main{width:260px;height:180px;}
 }
 @media(max-width:768px){
   .hero{height:56vw;min-height:220px;}
@@ -146,10 +154,10 @@ footer{background:#1a3a8f;color:#fff;padding:50px 80px 90px;}
   <div id="intPlaceholder" class="sec-banner-placeholder">GAMBAR BELUM DIUPLOAD</div>
 </div><div class="sec-ct"><h2>Semakin Luas Dan Nyaman</h2><p>Desain baru pada Interior berkesan elegan dengan beragam fungsi, kenyamanan serta kemewahan yang berpadu sangat indah menjadikan APV Arena tak lekang oleh waktu.</p></div><div class="color-sec">
   <div class="color-sec-title">PILIHAN WARNA</div>
-  <div class="color-main-wrap"><img class="color-main" id="colorMainImg" src="" alt="" style="display:none;"></div>
+  <div class="color-main-wrap"><img class="color-main" id="colorMainImg" src="" alt=""></div>
   <div class="color-lbl" id="colorLbl"></div>
   <div class="ctabs"><button class="ctab active" onclick="switchColorTab('SGX',this)">SGX</button><button class="ctab" onclick="switchColorTab('GX',this)">GX</button><button class="ctab" onclick="switchColorTab('GL',this)">GL</button></div>
-  <div class="ctab-panel active" id="cpanel-SGX"><div class="color-thumbs" id="colorThumbs-SGX"></div></div><div class="ctab-panel" id="cpanel-GX"><div class="color-thumbs" id="colorThumbs-GX"></div></div><div class="ctab-panel" id="cpanel-GL"><div class="color-thumbs" id="colorThumbs-GL"></div></div>
+  <div class="ctab-panel active" id="cpanel-SGX"><div class="color-swatches" id="colorSwatches-SGX"></div></div><div class="ctab-panel" id="cpanel-GX"><div class="color-swatches" id="colorSwatches-GX"></div></div><div class="ctab-panel" id="cpanel-GL"><div class="color-swatches" id="colorSwatches-GL"></div></div>
 </div><div class="harga-sec">
   <h2>HARGA</h2>
   <table class="htable">
@@ -175,7 +183,7 @@ footer{background:#1a3a8f;color:#fff;padding:50px 80px 90px;}
     <div class="foot-contact">
       <div class="foot-title">Informasi Kontak</div>
       <p>📞 +62 851-7334-0806</p>
-      <p>✉️ irfan.suzukibdg@gmail.com</p>
+      <p>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f667d696e61217c7a757a64666d6b684f68626e6663216c6062">[email&#160;protected]</a></p>
       <p>📍 Jl. Soekarno-Hatta No.700, Cipamokolan, Kec. Rancasari, Kota Bandung, Jawa Barat 40292</p>
     </div>
   </div>
@@ -211,7 +219,7 @@ footer{background:#1a3a8f;color:#fff;padding:50px 80px 90px;}
     </form>
   </div>
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const SB_URL='https://jglkpcywzmmaetbxwllr.supabase.co';
 const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpnbGtwY3l3em1tYWV0Ynh3bGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyOTUyMjEsImV4cCI6MjA4ODg3MTIyMX0.7qL9gfM6Gjy5wBgxdlxqiW5-TXzwcOBpRcmskZw0jYQ';
 const CAR_SLUG='apv';
@@ -222,9 +230,77 @@ function switchColorTab(group,btn){document.querySelectorAll('.ctab').forEach(t=
 async function submitSimulasi(e){e.preventDefault();const nama=document.getElementById('sim-nama').value.trim();const hp=document.getElementById('sim-hp').value.trim();if(!nama||!hp){alert('Harap isi Nama dan No HP.');return;}const btn=e.target.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Mengirim...';try{await fetch(SB_URL+'/rest/v1/simulasi_kredit',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({nama,no_hp:hp,mobil:document.getElementById('sim-mobil').value,tenor:document.getElementById('sim-tenor').value,uang_muka:document.getElementById('sim-dp').value?parseInt(document.getElementById('sim-dp').value):null,domisili:document.getElementById('sim-domisili')?document.getElementById('sim-domisili').value.trim():''})});e.target.style.display='none';const s=document.getElementById('simSuccess');if(s)s.style.display='block';else alert('Terima kasih!');}catch(err){alert('Gagal. Coba lagi.');btn.disabled=false;btn.textContent='KIRIM PERMINTAAN';}}
 async function submitTestDriveForm(e){e.preventDefault();const nama=document.getElementById('td-nama').value.trim();const hp=document.getElementById('td-hp').value.trim();if(!nama||!hp){alert('Harap isi Nama dan No HP.');return;}const btn=e.target.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Mengirim...';try{await fetch(SB_URL+'/rest/v1/test_drive',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({nama,no_hp:hp,mobil:document.getElementById('td-mobil').value,tanggal:document.getElementById('td-tgl').value})});e.target.style.display='none';const s=document.getElementById('tdSuccess');if(s)s.style.display='block';else alert('Terima kasih!');}catch(err){alert('Gagal. Coba lagi.');btn.disabled=false;btn.textContent='KIRIM PERMINTAAN';}}
 async function loadImages(){try{const r=await fetch(SB_URL+'/rest/v1/product_images?car_slug=eq.'+CAR_SLUG+'&select=*',{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});const rows=await r.json();if(!rows||!rows.length)return;const d=rows[0];if(d.img_hero&&d.img_hero.trim()){const el=document.getElementById('heroImg');if(el){el.src=d.img_hero;el.style.display='block';}const ph=document.getElementById('heroPlaceholder');if(ph)ph.style.display='none';}if(d.img_exterior&&d.img_exterior.trim()){const el=document.getElementById('extImg');if(el){el.src=d.img_exterior;el.style.display='block';}const ph=document.getElementById('extPlaceholder');if(ph)ph.style.display='none';}if(d.img_interior&&d.img_interior.trim()){const el=document.getElementById('intImg');if(el){el.src=d.img_interior;el.style.display='block';}const ph=document.getElementById('intPlaceholder');if(ph)ph.style.display='none';}}catch(e){console.error('loadImages:',e);}}
-async function loadColors(){try{const r=await fetch(SB_URL+'/rest/v1/color_variants?car_slug=eq.'+CAR_SLUG+'&order=sort_order,id&select=*',{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});const items=await r.json();if(!items||!items.length)return;const mainImg=document.getElementById('colorMainImg');const lblEl=document.getElementById('colorLbl');const grouped={};items.forEach(item=>{const g=item.variant_group||'';if(!grouped[g])grouped[g]=[];grouped[g].push(item);});let firstSet=true;Object.entries(grouped).forEach(([group,colors])=>{const thumbsEl=document.getElementById('colorThumbs-'+group);if(!thumbsEl)return;thumbsEl.innerHTML='';colors.forEach((item,i)=>{const div=document.createElement('div');div.className='color-thumb'+(firstSet&&i===0?' active':'');div.innerHTML='<img src="'+item.image_url+'" alt="'+item.color_name+'" style="width:90px;height:60px;object-fit:contain;display:block;"><p>'+item.color_name+'</p>';div.onclick=function(){mainImg.src=item.image_url;mainImg.style.display='';lblEl.textContent=item.color_name;document.querySelectorAll('.color-thumb').forEach(t=>t.classList.remove('active'));div.classList.add('active');};thumbsEl.appendChild(div);if(firstSet&&i===0){mainImg.src=item.image_url;mainImg.style.display='';lblEl.textContent=item.color_name;firstSet=false;}});});}catch(e){console.error('loadColors:',e);}}
-loadImages();
-loadColors();
+async function loadColors(){
+  try{
+    const r=await fetch(SB_URL+'/rest/v1/color_variants?car_slug=eq.'+CAR_SLUG+'&order=sort_order,id&select=*',{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
+    const items=await r.json();
+    if(!items||!items.length)return;
+    const mainImg=document.getElementById('colorMainImg');
+    const lblEl=document.getElementById('colorLbl');
+
+    // Group by variant_group
+    const grouped={};
+    items.forEach(item=>{
+      const g=item.variant_group||'';
+      if(!grouped[g])grouped[g]=[];
+      grouped[g].push(item);
+    });
+
+    function selectColor(item,dot,container){
+      mainImg.classList.add('fade');
+      setTimeout(()=>{mainImg.src=item.image_url;mainImg.onload=()=>mainImg.classList.remove('fade');},200);
+      lblEl.textContent=item.color_name;
+      container.querySelectorAll('.color-swatch').forEach(d=>d.classList.remove('active'));
+      dot.classList.add('active');
+    }
+
+    // Check if tabs exist (variant_group mode)
+    const hasTabs=document.querySelector('.ctab-panel')!==null;
+
+    if(hasTabs){
+      // Render swatches into each tab panel
+      Object.entries(grouped).forEach(([group,colors])=>{
+        const panel=document.getElementById('cpanel-'+group);
+        if(!panel)return;
+        // Replace color-thumbs div with color-swatches
+        let swatchesEl=panel.querySelector('.color-swatches');
+        if(!swatchesEl){
+          panel.innerHTML='<div class="color-swatches"></div>';
+          swatchesEl=panel.querySelector('.color-swatches');
+        }
+        swatchesEl.innerHTML='';
+        colors.forEach((item,i)=>{
+          const dot=document.createElement('div');
+          dot.className='color-swatch'+(i===0?' active':'');
+          dot.style.background=item.hex_color||'#aaa';
+          dot.title=item.color_name;
+          dot.onclick=()=>selectColor(item,dot,swatchesEl);
+          swatchesEl.appendChild(dot);
+        });
+      });
+      // Show first tab's first color
+      const firstPanel=document.querySelector('.ctab-panel.active');
+      if(firstPanel){
+        const firstSwatch=firstPanel.querySelector('.color-swatch');
+        if(firstSwatch)firstSwatch.click();
+      }
+    } else {
+      // No tabs — simple swatch list
+      const swatchesEl=document.getElementById('colorSwatches');
+      if(!swatchesEl)return;
+      items.forEach((item,i)=>{
+        const dot=document.createElement('div');
+        dot.className='color-swatch'+(i===0?' active':'');
+        dot.style.background=item.hex_color||'#aaa';
+        dot.title=item.color_name;
+        dot.onclick=()=>selectColor(item,dot,swatchesEl);
+        swatchesEl.appendChild(dot);
+        if(i===0){mainImg.src=item.image_url;lblEl.textContent=item.color_name;}
+      });
+    }
+  }catch(e){console.error('loadColors:',e);}
+}
+loadImages();loadColors();
 </script>
 </body>
 </html>
