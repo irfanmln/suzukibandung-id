@@ -441,17 +441,17 @@ async function uploadHeroBanner(){
     // Upload to Supabase Storage bucket "hero-banners"
     const ext=file.name.split('.').pop();
     const fname='banner-'+Date.now()+'.'+ext;
-    const upRes=await fetch(SB_URL+'/storage/v1/object/hero-banners/'+fname,{
+    const upRes=await fetch(SB+'/storage/v1/object/hero-banners/'+fname,{
       method:'POST',
-      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':file.type,'x-upsert':'true'},
+      headers:{'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':file.type,'x-upsert':'true'},
       body:file
     });
     if(!upRes.ok)throw new Error('Upload gagal: '+upRes.status);
-    const imageUrl=SB_URL+'/storage/v1/object/public/hero-banners/'+fname;
+    const imageUrl=SB+'/storage/v1/object/public/hero-banners/'+fname;
     // Insert record
-    const insRes=await fetch(SB_URL+'/rest/v1/hero_banners',{
+    const insRes=await fetch(SB+'/rest/v1/hero_banners',{
       method:'POST',
-      headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},
+      headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY},
       body:JSON.stringify({image_url:imageUrl,sort_order:order,is_active:true})
     });
     if(!insRes.ok)throw new Error('Simpan data gagal');
@@ -467,14 +467,14 @@ async function deleteHeroBanner(id,imageUrl){
   try{
     // Delete storage file
     const fname=imageUrl.split('/hero-banners/').pop();
-    await fetch(SB_URL+'/storage/v1/object/hero-banners/'+fname,{
+    await fetch(SB+'/storage/v1/object/hero-banners/'+fname,{
       method:'DELETE',
-      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
+      headers:{'apikey':KEY,'Authorization':'Bearer '+KEY}
     });
     // Delete DB record
-    await fetch(SB_URL+'/rest/v1/hero_banners?id=eq.'+id,{
+    await fetch(SB+'/rest/v1/hero_banners?id=eq.'+id,{
       method:'DELETE',
-      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
+      headers:{'apikey':KEY,'Authorization':'Bearer '+KEY}
     });
     loadHeroBanners();
   }catch(e){alert('Gagal menghapus: '+e.message);}

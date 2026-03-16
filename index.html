@@ -590,10 +590,19 @@ async function submitKredit(){
 // Load listing images from Supabase
 async function loadListingImages() {
   try {
-    const r = await fetch('https://jglkpcywzmmaetbxwllr.supabase.co/rest/v1/product_images?select=car_slug,img_listing', {
-      headers: {'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpnbGtwY3l3em1tYWV0Ynh3bGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyOTUyMjEsImV4cCI6MjA4ODg3MTIyMX0.7qL9gfM6Gjy5wBgxdlxqiW5-TXzwcOBpRcmskZw0jYQ', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpnbGtwY3l3em1tYWV0Ynh3bGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyOTUyMjEsImV4cCI6MjA4ODg3MTIyMX0.7qL9gfM6Gjy5wBgxdlxqiW5-TXzwcOBpRcmskZw0jYQ'}
+    const r = await fetch(SB_URL+'/rest/v1/product_images?select=car_slug,img_listing', {
+      headers: {'apikey': SB_KEY, 'Authorization': 'Bearer '+SB_KEY}
     });
     const rows = await r.json();
     rows.forEach(row => {
       if (row.img_listing) {
-        const imgs = document.querySelectorAll(`[data-slug="${row.car_slug}"]`)
+        const imgs = document.querySelectorAll(`[data-slug="${row.car_slug}"]`);
+        imgs.forEach(img => { img.src = row.img_listing; });
+      }
+    });
+  } catch(e) { console.error('loadListingImages:', e); }
+}
+loadListingImages();
+</script>
+</body>
+</html>
