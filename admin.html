@@ -130,6 +130,10 @@ body{font-family:'Montserrat',sans-serif;background:#f4f6fb;color:#222;}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
         Dashboard
       </div>
+      <div class="menu-item" onclick="showPage('hero',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Hero Banner
+      </div>
       <div class="menu-item" onclick="showPage('gambar',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
         Gambar Produk
@@ -179,6 +183,34 @@ body{font-family:'Montserrat',sans-serif;background:#f4f6fb;color:#222;}
           <thead><tr><th>NAMA</th><th>NO. HP</th><th>MOBIL</th><th>TENOR</th><th>UANG MUKA</th><th>DOMISILI</th></tr></thead>
           <tbody id="tbodySim"><tr><td colspan="6" style="text-align:center;color:#aaa;padding:30px;">Memuat data...</td></tr></tbody>
         </table>
+      </div>
+    </div>
+
+    <!-- HERO BANNER -->
+    <div id="page-hero" class="page">
+      <p style="font-size:14px;color:#666;margin-bottom:24px;">Upload gambar untuk hero banner di halaman beranda. Gambar akan tampil sebagai slider.</p>
+      <div class="card" style="margin-bottom:20px;">
+        <div class="card-header"><span class="card-title">Upload Banner Baru</span></div>
+        <div style="padding:20px;">
+          <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;">
+            <div>
+              <label style="font-size:12px;font-weight:700;letter-spacing:1px;color:#888;display:block;margin-bottom:6px;">GAMBAR BANNER</label>
+              <input type="file" id="heroBannerFile" accept="image/*" style="font-size:13px;">
+            </div>
+            <div>
+              <label style="font-size:12px;font-weight:700;letter-spacing:1px;color:#888;display:block;margin-bottom:6px;">URUTAN</label>
+              <input type="number" id="heroBannerOrder" value="0" min="0" style="width:80px;padding:8px;border:1px solid #ddd;border-radius:4px;font-size:13px;">
+            </div>
+            <button onclick="uploadHeroBanner()" style="padding:10px 24px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;">UPLOAD</button>
+          </div>
+          <div id="heroUploadStatus" style="margin-top:12px;font-size:13px;"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-title">Banner Aktif</span></div>
+        <div id="heroBannerList" style="padding:20px;">
+          <div style="text-align:center;padding:40px;color:#aaa;">Memuat data...</div>
+        </div>
       </div>
     </div>
 
@@ -370,13 +402,84 @@ async function showPage(name,el){
   document.querySelectorAll('.menu-item').forEach(m=>m.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   el.classList.add('active');
-  const titles={dashboard:'Dashboard',gambar:'Gambar Produk',warna:'Warna Mobil',testdrive:'Test Drive',simulasi:'Simulasi Kredit',otr:'Update OTR'};
+  const titles={dashboard:'Dashboard',hero:'Hero Banner',gambar:'Gambar Produk',warna:'Warna Mobil',testdrive:'Test Drive',simulasi:'Simulasi Kredit',otr:'Update OTR'};
   document.getElementById('pageTitle').textContent=titles[name]||name;
   if(name==='testdrive')loadTDFull();
   if(name==='simulasi')loadSimFull();
   if(name==='gambar')await renderCarGrid();
   if(name==='warna')loadColorPage();
+  if(name==='hero')loadHeroBanners();
 }
+
+// ── HERO BANNER ──────────────────────────────────────────
+async function loadHeroBanners(){
+  const el=document.getElementById('heroBannerList');
+  el.innerHTML='<div style="text-align:center;padding:40px;color:#aaa;">Memuat...</div>';
+  try{
+    const r=await api('/rest/v1/hero_banners?order=sort_order,id&select=*');
+    const rows=await r.json();
+    if(!rows.length){el.innerHTML='<div style="text-align:center;padding:40px;color:#aaa;">Belum ada banner. Upload gambar di atas.</div>';return;}
+    el.innerHTML=rows.map(b=>`
+      <div style="display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid #f0f0f0;">
+        <img src="${h(b.image_url)}" style="width:160px;height:90px;object-fit:cover;border-radius:4px;background:#f5f5f5;">
+        <div style="flex:1;">
+          <div style="font-size:12px;color:#888;">Urutan: <strong>${b.sort_order}</strong></div>
+          <div style="font-size:11px;color:#bbb;margin-top:4px;word-break:break-all;">${h(b.image_url)}</div>
+        </div>
+        <button onclick="deleteHeroBanner(${b.id},'${h(b.image_url)}')" style="padding:8px 16px;background:#fff;color:#e53e3e;border:1.5px solid #e53e3e;border-radius:4px;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;">HAPUS</button>
+      </div>`).join('');
+  }catch(e){el.innerHTML='<div style="color:red;padding:20px;">Gagal memuat data.</div>';}
+}
+
+async function uploadHeroBanner(){
+  const file=document.getElementById('heroBannerFile').files[0];
+  const order=parseInt(document.getElementById('heroBannerOrder').value)||0;
+  const status=document.getElementById('heroUploadStatus');
+  if(!file){status.innerHTML='<span style="color:red;">Pilih file gambar terlebih dahulu.</span>';return;}
+  status.innerHTML='<span style="color:#888;">Mengupload...</span>';
+  try{
+    // Upload to Supabase Storage bucket "hero-banners"
+    const ext=file.name.split('.').pop();
+    const fname='banner-'+Date.now()+'.'+ext;
+    const upRes=await fetch(SB_URL+'/storage/v1/object/hero-banners/'+fname,{
+      method:'POST',
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':file.type,'x-upsert':'true'},
+      body:file
+    });
+    if(!upRes.ok)throw new Error('Upload gagal: '+upRes.status);
+    const imageUrl=SB_URL+'/storage/v1/object/public/hero-banners/'+fname;
+    // Insert record
+    const insRes=await fetch(SB_URL+'/rest/v1/hero_banners',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},
+      body:JSON.stringify({image_url:imageUrl,sort_order:order,is_active:true})
+    });
+    if(!insRes.ok)throw new Error('Simpan data gagal');
+    status.innerHTML='<span style="color:green;">✓ Banner berhasil diupload!</span>';
+    document.getElementById('heroBannerFile').value='';
+    document.getElementById('heroBannerOrder').value='0';
+    loadHeroBanners();
+  }catch(e){status.innerHTML='<span style="color:red;">Gagal: '+e.message+'</span>';}
+}
+
+async function deleteHeroBanner(id,imageUrl){
+  if(!confirm('Hapus banner ini?'))return;
+  try{
+    // Delete storage file
+    const fname=imageUrl.split('/hero-banners/').pop();
+    await fetch(SB_URL+'/storage/v1/object/hero-banners/'+fname,{
+      method:'DELETE',
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
+    });
+    // Delete DB record
+    await fetch(SB_URL+'/rest/v1/hero_banners?id=eq.'+id,{
+      method:'DELETE',
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
+    });
+    loadHeroBanners();
+  }catch(e){alert('Gagal menghapus: '+e.message);}
+}
+// ─────────────────────────────────────────────────────────
 
 async function loadDashboard(){
   try{

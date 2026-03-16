@@ -179,32 +179,12 @@ footer{background:var(--white);padding:56px 80px 100px;border-top:1px solid #e0e
 <!-- HERO SLIDER -->
 <section class="hero" id="hero">
   <div class="slides" id="slides">
-    <div class="slide" style="background:linear-gradient(160deg,#0a1628 0%,#1c3a6e 45%,#7a5c1e 100%);">
+    <!-- Loaded from Supabase hero_banners -->
+    <div class="slide slide-placeholder" style="background:linear-gradient(160deg,#0a1628 0%,#1c3a6e 45%,#0d3a8a 100%);">
       <div class="slide-text">
-        <div class="slide-sub">The New Era</div>
-        <div class="slide-title">GRAND<br>VITARA</div>
-        <div class="slide-price">Mulai Rp 421.900.000</div>
-      </div>
-    </div>
-    <div class="slide" style="background:linear-gradient(160deg,#06101f 0%,#0d2a50 45%,#1a4a80 100%);">
-      <div class="slide-text">
-        <div class="slide-sub">All New</div>
-        <div class="slide-title">NEW<br>XL7</div>
-        <div class="slide-price">Mulai Rp 269.900.000</div>
-      </div>
-    </div>
-    <div class="slide" style="background:linear-gradient(160deg,#0f1a05 0%,#2a4a08 45%,#4a7010 100%);">
-      <div class="slide-text">
-        <div class="slide-sub">Iconic 4WD</div>
-        <div class="slide-title">JIMNY</div>
-        <div class="slide-price">Mulai Rp 511.550.000</div>
-      </div>
-    </div>
-    <div class="slide" style="background:linear-gradient(160deg,#1a0808 0%,#3a1010 45%,#6a2020 100%);">
-      <div class="slide-text">
-        <div class="slide-sub">Bold & Smart</div>
-        <div class="slide-title">FRONX</div>
-        <div class="slide-price">Mulai Rp 261.800.000</div>
+        <div class="slide-sub">Dealer Resmi</div>
+        <div class="slide-title">SUZUKI<br>GEDEBAGE</div>
+        <div class="slide-price">Bandung — Jawa Barat</div>
       </div>
     </div>
   </div>
@@ -338,7 +318,7 @@ footer{background:var(--white);padding:56px 80px 100px;border-top:1px solid #e0e
       </div>
       <div class="contact-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        irfan.suzukibdg@gmail.com
+        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cea7bca8afa0e0bdbbb4bba5a7acaaa98ea9a3afa7a2e0ada1a3">[email&#160;protected]</a>
       </div>
       <div class="contact-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -469,7 +449,7 @@ footer{background:var(--white);padding:56px 80px 100px;border-top:1px solid #e0e
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const SB_URL='https://jglkpcywzmmaetbxwllr.supabase.co';
 const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpnbGtwY3l3em1tYWV0Ynh3bGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyOTUyMjEsImV4cCI6MjA4ODg3MTIyMX0.7qL9gfM6Gjy5wBgxdlxqiW5-TXzwcOBpRcmskZw0jYQ';
 
@@ -486,14 +466,22 @@ document.addEventListener('click',function(e){
 });
 
 // SLIDER
-let current=0,total=4,autoTimer;
+let current=0,total=1,autoTimer;
 const slidesEl=document.getElementById('slides');
 const dotsEl=document.getElementById('dots');
-for(let i=0;i<total;i++){
-  const d=document.createElement('div');
-  d.className='dot'+(i===0?' active':'');
-  d.onclick=()=>goSlide(i);
-  dotsEl.appendChild(d);
+
+function initSlider(){
+  dotsEl.innerHTML='';
+  total=slidesEl.querySelectorAll('.slide').length;
+  for(let i=0;i<total;i++){
+    const d=document.createElement('div');
+    d.className='dot'+(i===0?' active':'');
+    d.onclick=()=>goSlide(i);
+    dotsEl.appendChild(d);
+  }
+  current=0;
+  updateSlider();
+  resetAuto();
 }
 function updateSlider(){
   slidesEl.style.transform=`translateX(-${current*100}%)`;
@@ -502,7 +490,33 @@ function updateSlider(){
 function changeSlide(dir){current=(current+dir+total)%total;updateSlider();resetAuto();}
 function goSlide(n){current=n;updateSlider();resetAuto();}
 function resetAuto(){clearInterval(autoTimer);autoTimer=setInterval(()=>changeSlide(1),5000);}
-resetAuto();
+
+// Load hero banners from Supabase
+async function loadHeroBanners(){
+  try{
+    const r=await fetch(SB_URL+'/rest/v1/hero_banners?is_active=eq.true&order=sort_order,id&select=*',{
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
+    });
+    const banners=await r.json();
+    if(!banners||!banners.length){initSlider();return;}
+    // Replace placeholder slide with actual banners
+    slidesEl.innerHTML='';
+    banners.forEach(b=>{
+      const slide=document.createElement('div');
+      slide.className='slide';
+      slide.style.backgroundImage=`url(${b.image_url})`;
+      slide.style.backgroundSize='cover';
+      slide.style.backgroundPosition='center';
+      slidesEl.appendChild(slide);
+    });
+    initSlider();
+  }catch(e){
+    console.error('loadHeroBanners:',e);
+    initSlider();
+  }
+}
+loadHeroBanners();
+
 const heroEl=document.getElementById('hero');
 let startX=0;
 heroEl.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});
@@ -582,17 +596,4 @@ async function loadListingImages() {
     const rows = await r.json();
     rows.forEach(row => {
       if (row.img_listing) {
-        const imgs = document.querySelectorAll(`[data-slug="${row.car_slug}"]`);
-        imgs.forEach(img => {
-          img.src = row.img_listing;
-          img.style.opacity = '1';
-        });
-      }
-    });
-  } catch(e) { console.log('listing img error', e); }
-}
-loadListingImages();
-
-</script>
-</body>
-</html>
+        const imgs = document.querySelectorAll(`[data-slug="${row.car_slug}"]`)
