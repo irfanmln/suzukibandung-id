@@ -141,19 +141,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
         Dashboard
       </div>
-      <div class="menu-item" onclick="showPage('delivery',this)">
+      <div id="menu-delivery" class="menu-item" onclick="showPage('delivery',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg>
         Foto Delivery
       </div>
-      <div class="menu-item" onclick="showPage('hero',this)">
+      <div id="menu-hero" class="menu-item" onclick="showPage('hero',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         Hero Banner
       </div>
-      <div class="menu-item" onclick="showPage('gambar',this)">
+      <div id="menu-gambar" class="menu-item" onclick="showPage('gambar',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
         Gambar Produk
       </div>
-      <div class="menu-item" onclick="showPage('warna',this)">
+      <div id="menu-warna" class="menu-item" onclick="showPage('warna',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C6.49 22 2 17.52 2 12C2 6.48 6.49 2 12 2C17.51 2 22 6.48 22 12C22 17.52 17.51 22 12 22Z" stroke-width="2"/><path d="M12 2C12 2 8 8 8 12C8 14.21 9.79 16 12 16C14.21 16 16 14.21 16 12C16 8 12 2 12 2Z"/></svg>
         Warna Mobil
       </div>
@@ -165,7 +165,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         Simulasi Kredit
       </div>
-      <div class="menu-item" onclick="showPage('otr',this)">
+      <div id="menu-otr" class="menu-item" onclick="showPage('otr',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         Update OTR
       </div>
@@ -175,7 +175,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="main">
     <div class="topbar">
       <h1 id="pageTitle">Dashboard</h1>
-      <button class="btn-logout" onclick="doLogout()">Keluar</button>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span id="roleBadge" style="padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;color:#fff;background:#1a3a8f;"></span>
+        <button class="btn-logout" onclick="doLogout()">Keluar</button>
+      </div>
     </div>
 
     <!-- DASHBOARD -->
@@ -376,6 +379,9 @@ const SB='https://jglkpcywzmmaetbxwllr.supabase.co';
 const KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpnbGtwY3l3em1tYWV0Ynh3bGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyOTUyMjEsImV4cCI6MjA4ODg3MTIyMX0.7qL9gfM6Gjy5wBgxdlxqiW5-TXzwcOBpRcmskZw0jYQ';
 const ADMIN_EMAIL='admin@suzukigedebage.com';
 const ADMIN_PASS='suzuki2026';
+const SALES_EMAIL='sales@suzukigedebage.com';
+const SALES_PASS='sales2026';
+let currentRole=''; // 'admin' atau 'sales'
 
 const CARS=[
   {slug:'grand-vitara',name:'Grand Vitara'},
@@ -427,17 +433,45 @@ function doLogin(){
   const e=document.getElementById('loginEmail').value;
   const p=document.getElementById('loginPass').value;
   if(e===ADMIN_EMAIL&&p===ADMIN_PASS){
+    currentRole='admin';
+    applyRole();
     document.getElementById('loginScreen').style.display='none';
     document.getElementById('adminApp').style.display='block';
     loadDashboard();loadImageData();
+  }else if(e===SALES_EMAIL&&p===SALES_PASS){
+    currentRole='sales';
+    applyRole();
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('adminApp').style.display='block';
+    loadDashboard();
   }else{
     document.getElementById('loginErr').style.display='block';
   }
 }
+
+function applyRole(){
+  // Menu yang hanya boleh dilihat admin
+  const adminOnlyMenus=['menu-delivery','menu-hero','menu-gambar','menu-warna','menu-otr'];
+  adminOnlyMenus.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.style.display=currentRole==='admin'?'':'none';
+  });
+  // Tampilkan badge role di topbar
+  const badge=document.getElementById('roleBadge');
+  if(badge){
+    badge.textContent=currentRole==='admin'?'Admin':'Sales';
+    badge.style.background=currentRole==='admin'?'#1a3a8f':'#2e7d32';
+  }
+}
+
 document.addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 function doLogout(){
+  currentRole='';
   document.getElementById('loginScreen').style.display='flex';
   document.getElementById('adminApp').style.display='none';
+  document.getElementById('loginEmail').value='';
+  document.getElementById('loginPass').value='';
+  document.getElementById('loginErr').style.display='none';
 }
 
 async function showPage(name,el){
