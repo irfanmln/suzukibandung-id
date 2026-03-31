@@ -634,10 +634,10 @@ async function loadDashboard(){
     document.getElementById('statTD').textContent=td.length>=5?'5+':td.length;
     document.getElementById('statSim').textContent=sim.length>=5?'5+':sim.length;
     document.getElementById('tbodyTD').innerHTML=td.length
-      ?td.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.mobil)}</td><td>${fmtDate(r.tanggal)}</td></tr>`).join('')
+      ?td.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.tipe_mobil)}</td><td>${fmtDate(r.tanggal)}</td></tr>`).join('')
       :'<tr><td colspan="4" style="text-align:center;color:#aaa;padding:20px;">Belum ada data</td></tr>';
     document.getElementById('tbodySim').innerHTML=sim.length
-      ?sim.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.mobil)}</td><td>${h(r.tenor)}</td><td>${fmtRp(r.uang_muka)}</td><td>${h(r.domisili)}</td></tr>`).join('')
+      ?sim.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.tipe_mobil)}</td><td>${h(r.tenor)}</td><td>${fmtRp(r.uang_muka)}</td><td>${h(r.asal_kota)}</td></tr>`).join('')
       :'<tr><td colspan="6" style="text-align:center;color:#aaa;padding:20px;">Belum ada data</td></tr>';
   }catch(e){console.error(e);}
 }
@@ -646,7 +646,7 @@ async function loadTDFull(){
   const r=await api('/rest/v1/test_drive?select=*&order=id.desc');
   const d=await r.json();
   document.getElementById('tbodyTDFull').innerHTML=d.length
-    ?d.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.mobil)}</td><td>${fmtDate(r.tanggal)}</td></tr>`).join('')
+    ?d.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.tipe_mobil)}</td><td>${fmtDate(r.tanggal)}</td></tr>`).join('')
     :'<tr><td colspan="4" style="text-align:center;color:#aaa;padding:20px;">Belum ada data</td></tr>';
 }
 
@@ -654,7 +654,7 @@ async function loadSimFull(){
   const r=await api('/rest/v1/simulasi_kredit?select=*&order=id.desc');
   const d=await r.json();
   document.getElementById('tbodySimFull').innerHTML=d.length
-    ?d.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.mobil)}</td><td>${h(r.tenor)}</td><td>${fmtRp(r.uang_muka)}</td><td>${h(r.domisili)}</td></tr>`).join('')
+    ?d.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.tipe_mobil)}</td><td>${h(r.tenor)}</td><td>${fmtRp(r.uang_muka)}</td><td>${h(r.asal_kota)}</td></tr>`).join('')
     :'<tr><td colspan="6" style="text-align:center;color:#aaa;padding:20px;">Belum ada data</td></tr>';
 }
 
