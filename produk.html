@@ -320,7 +320,7 @@ async function submitTestDrive(){
   const btn=document.getElementById('tdBtn');
   btn.disabled=true;btn.textContent='Mengirim...';
   try{
-    await fetch(SB_URL+'/rest/v1/test_drive',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({nama,no_hp:hp,mobil,tanggal:hari})});
+    await fetch(SB_URL+'/rest/v1/test_drive',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({nama,no_hp:hp,tipe_mobil:mobil,tanggal:hari,email:''})});
     document.getElementById('testDriveForm').style.display='none';
     document.getElementById('testDriveSuccess').style.display='block';
   }catch(err){alert('Gagal mengirim. Silakan coba lagi.');btn.disabled=false;btn.textContent='KIRIM PERMINTAAN';}
@@ -333,5 +333,5 @@ async function submitKredit(){
   const btn=document.getElementById('krBtn');
   btn.disabled=true;btn.textContent='Mengirim...';
   try{
-    await fetch(SB_URL+'/rest/v1/simulasi_kredit',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({nama,no_hp:hp,mobil:document.getElementById('kr_mobil').value,tenor:document.getElementById('kr_tenor').value,uang_muka:document.getElementById('kr_dp').value?parseInt(document.getElementById('kr_dp').value):null,domisili:document.getElementById('kr_domisili').value.trim()})});
+    await fetch(SB_URL+'/rest/v1/simulasi_kredit',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({nama,no_hp:hp,tipe_mobil:document.getElementById('kr_mobil').value,tenor:document.getElementById('kr_tenor').value,uang_muka:document.getElementById('kr_dp').value?parseInt(document.getElementById('kr_dp').value):null,asal_kota:document.getElementById('kr_domisili').value.trim()})});
     document.getElementById('kreditFor
