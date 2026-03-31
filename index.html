@@ -572,7 +572,7 @@ async function submitTestDrive(){
     await fetch(SB_URL+'/rest/v1/test_drive',{
       method:'POST',
       headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},
-      body:JSON.stringify({nama,no_hp:hp,mobil,tanggal:hari})
+      body:JSON.stringify({nama,no_hp:hp,tipe_mobil:mobil,tanggal:hari,email:''})
     });
     document.getElementById('testDriveForm').style.display='none';
     document.getElementById('testDriveSuccess').style.display='block';
@@ -596,7 +596,7 @@ async function submitKredit(){
     await fetch(SB_URL+'/rest/v1/simulasi_kredit',{
       method:'POST',
       headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},
-      body:JSON.stringify({nama,no_hp:hp,mobil,tenor,uang_muka:dp?parseInt(dp):null,domisili:document.getElementById('kr_domisili').value.trim()})
+      body:JSON.stringify({nama,no_hp:hp,tipe_mobil:mobil,tenor,uang_muka:dp?parseInt(dp):null,asal_kota:document.getElementById('kr_domisili').value.trim()})
     });
     document.getElementById('kreditForm').style.display='none';
     document.getElementById('kreditSuccess').style.display='block';
