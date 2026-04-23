@@ -48,52 +48,11 @@ body{font-family:'Montserrat',sans-serif;background:#f4f6fb;color:#222;}
 .table th{text-align:left;padding:12px 24px;background:#fafafa;font-size:11px;font-weight:700;letter-spacing:1px;color:#888;border-bottom:1px solid #f0f0f0;}
 .table td{padding:14px 24px;border-bottom:1px solid #f8f8f8;font-size:13px;color:#333;}
 .table tr:last-child td{border-bottom:none;}
-.car-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;}
-.car-card{background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);overflow:hidden;}
-.car-card-header{background:#1a3a8f;color:#fff;padding:14px 20px;}
-.car-card-header h3{font-size:14px;font-weight:800;letter-spacing:0.5px;}
-.car-card-body{padding:20px;}
-.img-upload-row{margin-bottom:16px;}
-.img-label{font-size:11px;font-weight:700;letter-spacing:1px;color:#888;text-transform:uppercase;margin-bottom:6px;}
-.img-preview{width:100%;height:120px;object-fit:cover;border-radius:6px;background:#f5f5f5;display:block;margin-bottom:6px;}
-.img-preview-placeholder{width:100%;height:120px;border-radius:6px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:6px;}
-.upload-row{display:flex;gap:8px;align-items:center;}
-.file-input{display:none;}
-.btn-choose{padding:8px 14px;background:#f0f4ff;color:#1a3a8f;border:1px solid #c5d3f5;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;}
-.btn-choose:hover{background:#dce6ff;}
-.file-name{font-size:12px;color:#888;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.btn-upload{padding:8px 14px;background:#1a3a8f;color:#fff;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;}
-.btn-upload:hover{background:#0f2460;}
-.btn-upload:disabled{background:#aaa;cursor:not-allowed;}
-.upload-status{font-size:11px;margin-top:4px;min-height:16px;}
-.upload-status.ok{color:#2e7d32;}
-.upload-status.err{color:#e53935;}
-.upload-status.loading{color:#888;}
-/* COLOR VARIANTS */
-.color-car-section{background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:20px;overflow:hidden;}
-.color-car-header{background:#1a3a8f;color:#fff;padding:14px 20px;}
-.color-car-header h3{font-size:14px;font-weight:800;}
-.color-car-body{padding:20px;}
-.color-add-form{background:#f8f9fc;border-radius:8px;padding:16px;margin-bottom:16px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.form-row label,.color-add-form>label{font-size:11px;font-weight:700;letter-spacing:1px;color:#888;text-transform:uppercase;display:block;margin-bottom:5px;margin-top:10px;}
-.form-row label:first-child,.color-add-form>label:first-child{margin-top:0;}
-.color-add-form input,.color-add-form select{width:100%;padding:9px 12px;border:1px solid #ddd;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:13px;outline:none;}
-.color-add-form input:focus,.color-add-form select:focus{border-color:#1a3a8f;}
-.btn-add-color{margin-top:12px;padding:10px 20px;background:#1a3a8f;color:#fff;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;width:100%;}
-.btn-add-color:hover{background:#0f2460;}
-.color-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:4px;}
-.color-item{border:1px solid #eee;border-radius:8px;overflow:hidden;position:relative;text-align:center;}
-.color-item img{width:100%;height:72px;object-fit:contain;background:#f5f5f5;display:block;}
-.color-item-info{padding:6px 6px;}
-.color-item-group{font-size:9px;font-weight:700;color:#1a3a8f;letter-spacing:1px;text-transform:uppercase;}
-.color-item-name{font-size:9px;color:#555;font-weight:600;line-height:1.3;margin-top:2px;}
-.color-item-del{position:absolute;top:3px;right:3px;background:rgba(229,57,53,0.9);color:#fff;border:none;border-radius:3px;font-size:10px;font-weight:700;padding:2px 5px;cursor:pointer;line-height:1.4;}
-.color-empty{font-size:13px;color:#aaa;padding:16px 0;text-align:center;grid-column:1/-1;}
+.btn-export{padding:8px 16px;background:#1a3a8f;color:#fff;border:none;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;cursor:pointer;}
+.btn-export:hover{background:#0f2460;}
 .toast{position:fixed;bottom:24px;right:24px;background:#323232;color:#fff;padding:12px 24px;border-radius:6px;font-size:13px;font-weight:600;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none;}
 .toast.show{opacity:1;}
 
-/* MOBILE */
 @media(max-width:768px){
   .sidebar{width:100%;height:auto;position:relative;padding:0;}
   .sidebar-logo{padding:12px 16px 12px;border-bottom:1px solid rgba(255,255,255,0.15);}
@@ -108,9 +67,6 @@ body{font-family:'Montserrat',sans-serif;background:#f4f6fb;color:#222;}
   .stats-grid{grid-template-columns:1fr 1fr;gap:12px;}
   .stat-val{font-size:22px;}
   .table th,.table td{padding:10px 12px;font-size:12px;}
-  .car-grid{grid-template-columns:1fr;}
-  .form-row{grid-template-columns:1fr;}
-  .color-list{grid-template-columns:repeat(auto-fill,minmax(90px,1fr));}
   #adminApp{display:flex;flex-direction:column;}
 }
 </style>
@@ -141,22 +97,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
         Dashboard
       </div>
-      <div id="menu-delivery" class="menu-item" onclick="showPage('delivery',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg>
-        Foto Delivery
-      </div>
-      <div id="menu-hero" class="menu-item" onclick="showPage('hero',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-        Hero Banner
-      </div>
-      <div id="menu-gambar" class="menu-item" onclick="showPage('gambar',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
-        Gambar Produk
-      </div>
-      <div id="menu-warna" class="menu-item" onclick="showPage('warna',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C6.49 22 2 17.52 2 12C2 6.48 6.49 2 12 2C17.51 2 22 6.48 22 12C22 17.52 17.51 22 12 22Z" stroke-width="2"/><path d="M12 2C12 2 8 8 8 12C8 14.21 9.79 16 12 16C14.21 16 16 14.21 16 12C16 8 12 2 12 2Z"/></svg>
-        Warna Mobil
-      </div>
       <div class="menu-item" onclick="showPage('testdrive',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         Test Drive
@@ -164,10 +104,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="menu-item" onclick="showPage('simulasi',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         Simulasi Kredit
-      </div>
-      <div id="menu-otr" class="menu-item" onclick="showPage('otr',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        Update OTR
       </div>
     </div>
   </div>
@@ -204,154 +140,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- FOTO DELIVERY -->
-    <div id="page-delivery" class="page">
-      <p style="font-size:14px;color:#666;margin-bottom:24px;">Upload foto dokumentasi delivery order. Foto akan tampil di galeri halaman beranda.</p>
-      <div class="card" style="margin-bottom:20px;">
-        <div class="card-header"><span class="card-title">Upload Foto Baru</span></div>
-        <div style="padding:20px;">
-          <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;">
-            <div>
-              <label style="font-size:12px;font-weight:700;letter-spacing:1px;color:#888;display:block;margin-bottom:6px;">FOTO DELIVERY</label>
-              <input type="file" id="deliveryFile" accept="image/*" style="font-size:13px;">
-            </div>
-            <div>
-              <label style="font-size:12px;font-weight:700;letter-spacing:1px;color:#888;display:block;margin-bottom:6px;">URUTAN</label>
-              <input type="number" id="deliveryOrder" value="0" min="0" style="width:80px;padding:8px;border:1px solid #ddd;border-radius:4px;font-size:13px;">
-            </div>
-            <button onclick="uploadDeliveryPhoto()" style="padding:10px 24px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;">UPLOAD</button>
-          </div>
-          <div id="deliveryUploadStatus" style="margin-top:12px;font-size:13px;"></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header"><span class="card-title">Foto Delivery</span></div>
-        <div id="deliveryPhotoList" style="padding:20px;">
-          <div style="text-align:center;padding:40px;color:#aaa;">Memuat data...</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- HERO BANNER -->
-    <div id="page-hero" class="page">
-      <p style="font-size:14px;color:#666;margin-bottom:24px;">Upload gambar untuk hero banner di halaman beranda. Gambar akan tampil sebagai slider.</p>
-      <div class="card" style="margin-bottom:20px;">
-        <div class="card-header"><span class="card-title">Upload Banner Baru</span></div>
-        <div style="padding:20px;">
-          <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;">
-            <div>
-              <label style="font-size:12px;font-weight:700;letter-spacing:1px;color:#888;display:block;margin-bottom:6px;">GAMBAR BANNER</label>
-              <input type="file" id="heroBannerFile" accept="image/*" style="font-size:13px;">
-            </div>
-            <div>
-              <label style="font-size:12px;font-weight:700;letter-spacing:1px;color:#888;display:block;margin-bottom:6px;">URUTAN</label>
-              <input type="number" id="heroBannerOrder" value="0" min="0" style="width:80px;padding:8px;border:1px solid #ddd;border-radius:4px;font-size:13px;">
-            </div>
-            <button onclick="uploadHeroBanner()" style="padding:10px 24px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;">UPLOAD</button>
-          </div>
-          <div id="heroUploadStatus" style="margin-top:12px;font-size:13px;"></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header"><span class="card-title">Banner Aktif</span></div>
-        <div id="heroBannerList" style="padding:20px;">
-          <div style="text-align:center;padding:40px;color:#aaa;">Memuat data...</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- GAMBAR PRODUK -->
-    <div id="page-gambar" class="page">
-      <p style="font-size:14px;color:#666;margin-bottom:24px;">Upload gambar banner untuk setiap mobil. Gambar akan langsung tampil di halaman produk.</p>
-      <div class="car-grid" id="carGrid">
-        <div style="grid-column:1/-1;text-align:center;padding:40px;color:#aaa;">Memuat data...</div>
-      </div>
-    </div>
-
-    <!-- WARNA MOBIL -->
-    <div id="page-warna" class="page">
-      <p style="font-size:14px;color:#666;margin-bottom:24px;">Kelola pilihan warna setiap mobil. Upload foto per warna — otomatis tampil di halaman mobil.</p>
-      <div id="colorCarList">
-        <div style="text-align:center;padding:40px;color:#aaa;">Memuat data...</div>
-      </div>
-    </div>
-
-
-    <!-- OTR -->
-    <div id="page-otr" class="page">
-      <p style="font-size:14px;color:#666;margin-bottom:24px;">Update harga OTR setiap tipe. Klik Simpan untuk mengupdate halaman produk.</p>
-      <div class="car-grid" style="grid-template-columns:repeat(auto-fill,minmax(460px,1fr));">
-        <div class="car-card" style="margin-bottom:20px;">
-  <div class="car-card-header"><h3>Grand Vitara</h3></div>
-  <div class="car-card-body" style="padding:0;">
-    <table class="table">
-      <thead><tr><th>TIPE</th><th>HARGA OTR</th><th></th></tr></thead>
-      <tbody id="otr-grand-vitara"><tr><td><input class="otr-input" data-slug="grand-vitara" data-idx="0" value="GRAND VITARA MC SINGLE TONE"></td><td><input class="otr-input otr-price" data-slug="grand-vitara" data-idx="0" value="Rp 421.900.000"></td><td><button onclick="saveOTR('grand-vitara')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="grand-vitara" data-idx="1" value="GRAND VITARA MC TWO TONE"></td><td><input class="otr-input otr-price" data-slug="grand-vitara" data-idx="1" value="Rp 424.900.000"></td><td><button onclick="saveOTR('grand-vitara')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr></tbody>
-    </table>
-  </div>
-</div><div class="car-card" style="margin-bottom:20px;">
-  <div class="car-card-header"><h3>S-Presso</h3></div>
-  <div class="car-card-body" style="padding:0;">
-    <table class="table">
-      <thead><tr><th>TIPE</th><th>HARGA OTR</th><th></th></tr></thead>
-      <tbody id="otr-s-presso"><tr><td><input class="otr-input" data-slug="s-presso" data-idx="0" value="S-PRESSO GA"></td><td><input class="otr-input otr-price" data-slug="s-presso" data-idx="0" value="Rp 176.600.000"></td><td><button onclick="saveOTR('s-presso')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="s-presso" data-idx="1" value="S-PRESSO GL MT"></td><td><input class="otr-input otr-price" data-slug="s-presso" data-idx="1" value="Rp 192.600.000"></td><td><button onclick="saveOTR('s-presso')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="s-presso" data-idx="2" value="S-PRESSO GL AT"></td><td><input class="otr-input otr-price" data-slug="s-presso" data-idx="2" value="Rp 203.600.000"></td><td><button onclick="saveOTR('s-presso')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr></tbody>
-    </table>
-  </div>
-</div><div class="car-card" style="margin-bottom:20px;">
-  <div class="car-card-header"><h3>APV</h3></div>
-  <div class="car-card-body" style="padding:0;">
-    <table class="table">
-      <thead><tr><th>TIPE</th><th>HARGA OTR</th><th></th></tr></thead>
-      <tbody id="otr-apv"><tr><td><input class="otr-input" data-slug="apv" data-idx="0" value="APV GL"></td><td><input class="otr-input otr-price" data-slug="apv" data-idx="0" value="Rp 228.200.000"></td><td><button onclick="saveOTR('apv')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="apv" data-idx="1" value="APV GX"></td><td><input class="otr-input otr-price" data-slug="apv" data-idx="1" value="Rp 248.200.000"></td><td><button onclick="saveOTR('apv')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="apv" data-idx="2" value="APV SGX"></td><td><input class="otr-input otr-price" data-slug="apv" data-idx="2" value="Rp 260.700.000"></td><td><button onclick="saveOTR('apv')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr></tbody>
-    </table>
-  </div>
-</div><div class="car-card" style="margin-bottom:20px;">
-  <div class="car-card-header"><h3>New XL7</h3></div>
-  <div class="car-card-body" style="padding:0;">
-    <table class="table">
-      <thead><tr><th>TIPE</th><th>HARGA OTR</th><th></th></tr></thead>
-      <tbody id="otr-new-xl7"><tr><td><input class="otr-input" data-slug="new-xl7" data-idx="0" value="XL7 ZETA MT"></td><td><input class="otr-input otr-price" data-slug="new-xl7" data-idx="0" value="Rp 269.900.000"></td><td><button onclick="saveOTR('new-xl7')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="new-xl7" data-idx="1" value="XL7 ZETA AT"></td><td><input class="otr-input otr-price" data-slug="new-xl7" data-idx="1" value="Rp 281.100.000"></td><td><button onclick="saveOTR('new-xl7')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="new-xl7" data-idx="2" value="XL7 BETA MT HYBRID"></td><td><input class="otr-input otr-price" data-slug="new-xl7" data-idx="2" value="Rp 292.200.000"></td><td><button onclick="saveOTR('new-xl7')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="new-xl7" data-idx="3" value="XL7 BETA AT HYBRID"></td><td><input class="otr-input otr-price" data-slug="new-xl7" data-idx="3" value="Rp 303.200.000"></td><td><button onclick="saveOTR('new-xl7')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="new-xl7" data-idx="4" value="XL7 ALPHA MT HYBRID"></td><td><input class="otr-input otr-price" data-slug="new-xl7" data-idx="4" value="Rp 308.200.000"></td><td><button onclick="saveOTR('new-xl7')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="new-xl7" data-idx="5" value="XL7 ALPHA AT HYBRID"></td><td><input class="otr-input otr-price" data-slug="new-xl7" data-idx="5" value="Rp 319.200.000"></td><td><button onclick="saveOTR('new-xl7')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="new-xl7" data-idx="6" value="XL7 ALPHA AT HYBRID 2TONE"></td><td><input class="otr-input otr-price" data-slug="new-xl7" data-idx="6" value="Rp 321.200.000"></td><td><button onclick="saveOTR('new-xl7')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="new-xl7" data-idx="7" value="XL7 ALPHA KURO AT HYBRID"></td><td><input class="otr-input otr-price" data-slug="new-xl7" data-idx="7" value="Rp 332.200.000"></td><td><button onclick="saveOTR('new-xl7')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="new-xl7" data-idx="8" value="XL7 ALPHA KURO AT HYBRID 2TONE"></td><td><input class="otr-input otr-price" data-slug="new-xl7" data-idx="8" value="Rp 334.200.000"></td><td><button onclick="saveOTR('new-xl7')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr></tbody>
-    </table>
-  </div>
-</div><div class="car-card" style="margin-bottom:20px;">
-  <div class="car-card-header"><h3>Jimny</h3></div>
-  <div class="car-card-body" style="padding:0;">
-    <table class="table">
-      <thead><tr><th>TIPE</th><th>HARGA OTR</th><th></th></tr></thead>
-      <tbody id="otr-jimny"><tr><td><input class="otr-input" data-slug="jimny" data-idx="0" value="JIMNY 3 Door MT"></td><td><input class="otr-input otr-price" data-slug="jimny" data-idx="0" value="Rp 511.550.000"></td><td><button onclick="saveOTR('jimny')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="jimny" data-idx="1" value="JIMNY 3 Door AT"></td><td><input class="otr-input otr-price" data-slug="jimny" data-idx="1" value="Rp 524.000.000"></td><td><button onclick="saveOTR('jimny')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="jimny" data-idx="2" value="JIMNY 3 Door MT 2TONE"></td><td><input class="otr-input otr-price" data-slug="jimny" data-idx="2" value="Rp 514.850.000"></td><td><button onclick="saveOTR('jimny')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="jimny" data-idx="3" value="JIMNY 3 Door AT 2TONE"></td><td><input class="otr-input otr-price" data-slug="jimny" data-idx="3" value="Rp 527.300.000"></td><td><button onclick="saveOTR('jimny')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="jimny" data-idx="4" value="JIMNY 5 Door MT"></td><td><input class="otr-input otr-price" data-slug="jimny" data-idx="4" value="Rp 496.100.000"></td><td><button onclick="saveOTR('jimny')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="jimny" data-idx="5" value="JIMNY 5 Door AT"></td><td><input class="otr-input otr-price" data-slug="jimny" data-idx="5" value="Rp 508.700.000"></td><td><button onclick="saveOTR('jimny')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="jimny" data-idx="6" value="JIMNY 5 Door MT 2TONE"></td><td><input class="otr-input otr-price" data-slug="jimny" data-idx="6" value="Rp 499.350.000"></td><td><button onclick="saveOTR('jimny')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="jimny" data-idx="7" value="JIMNY 5 Door AT 2TONE"></td><td><input class="otr-input otr-price" data-slug="jimny" data-idx="7" value="Rp 511.900.000"></td><td><button onclick="saveOTR('jimny')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="jimny" data-idx="8" value="JIMNY 5 Door AT White Rhino"></td><td><input class="otr-input otr-price" data-slug="jimny" data-idx="8" value="Rp 522.300.000"></td><td><button onclick="saveOTR('jimny')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr></tbody>
-    </table>
-  </div>
-</div><div class="car-card" style="margin-bottom:20px;">
-  <div class="car-card-header"><h3>Fronx</h3></div>
-  <div class="car-card-body" style="padding:0;">
-    <table class="table">
-      <thead><tr><th>TIPE</th><th>HARGA OTR</th><th></th></tr></thead>
-      <tbody id="otr-fronx"><tr><td><input class="otr-input" data-slug="fronx" data-idx="0" value="FRONX GL MT"></td><td><input class="otr-input otr-price" data-slug="fronx" data-idx="0" value="Rp 261.800.000"></td><td><button onclick="saveOTR('fronx')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="fronx" data-idx="1" value="FRONX GL AT"></td><td><input class="otr-input otr-price" data-slug="fronx" data-idx="1" value="Rp 273.800.000"></td><td><button onclick="saveOTR('fronx')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="fronx" data-idx="2" value="FRONX GX MT"></td><td><input class="otr-input otr-price" data-slug="fronx" data-idx="2" value="Rp 278.800.000"></td><td><button onclick="saveOTR('fronx')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="fronx" data-idx="3" value="FRONX GX AT"></td><td><input class="otr-input otr-price" data-slug="fronx" data-idx="3" value="Rp 296.600.000"></td><td><button onclick="saveOTR('fronx')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="fronx" data-idx="4" value="FRONX SGX AT"></td><td><input class="otr-input otr-price" data-slug="fronx" data-idx="4" value="Rp 322.600.000"></td><td><button onclick="saveOTR('fronx')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="fronx" data-idx="5" value="FRONX SGX AT 2TONE"></td><td><input class="otr-input otr-price" data-slug="fronx" data-idx="5" value="Rp 324.600.000"></td><td><button onclick="saveOTR('fronx')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr></tbody>
-    </table>
-  </div>
-</div><div class="car-card" style="margin-bottom:20px;">
-  <div class="car-card-header"><h3>All New Ertiga</h3></div>
-  <div class="car-card-body" style="padding:0;">
-    <table class="table">
-      <thead><tr><th>TIPE</th><th>HARGA OTR</th><th></th></tr></thead>
-      <tbody id="otr-all-new-ertiga"><tr><td><input class="otr-input" data-slug="all-new-ertiga" data-idx="0" value="ALL NEW ERTIGA GA"></td><td><input class="otr-input otr-price" data-slug="all-new-ertiga" data-idx="0" value="Rp 241.750.000"></td><td><button onclick="saveOTR('all-new-ertiga')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="all-new-ertiga" data-idx="1" value="ALL NEW ERTIGA MC GL MT"></td><td><input class="otr-input otr-price" data-slug="all-new-ertiga" data-idx="1" value="Rp 265.350.000"></td><td><button onclick="saveOTR('all-new-ertiga')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="all-new-ertiga" data-idx="2" value="ALL NEW ERTIGA MC GL AT"></td><td><input class="otr-input otr-price" data-slug="all-new-ertiga" data-idx="2" value="Rp 276.400.000"></td><td><button onclick="saveOTR('all-new-ertiga')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="all-new-ertiga" data-idx="3" value="ALL NEW ERTIGA MC GX MT"></td><td><input class="otr-input otr-price" data-slug="all-new-ertiga" data-idx="3" value="Rp 282.000.000"></td><td><button onclick="saveOTR('all-new-ertiga')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="all-new-ertiga" data-idx="4" value="ALL NEW ERTIGA MC GX AT"></td><td><input class="otr-input otr-price" data-slug="all-new-ertiga" data-idx="4" value="Rp 293.000.000"></td><td><button onclick="saveOTR('all-new-ertiga')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="all-new-ertiga" data-idx="5" value="ALL NEW ERTIGA CRUISE MT"></td><td><input class="otr-input otr-price" data-slug="all-new-ertiga" data-idx="5" value="Rp 294.800.000"></td><td><button onclick="saveOTR('all-new-ertiga')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="all-new-ertiga" data-idx="6" value="ALL NEW ERTIGA CRUISE MT 2TONE"></td><td><input class="otr-input otr-price" data-slug="all-new-ertiga" data-idx="6" value="Rp 296.800.000"></td><td><button onclick="saveOTR('all-new-ertiga')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="all-new-ertiga" data-idx="7" value="ALL NEW ERTIGA CRUISE AT"></td><td><input class="otr-input otr-price" data-slug="all-new-ertiga" data-idx="7" value="Rp 305.700.000"></td><td><button onclick="saveOTR('all-new-ertiga')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="all-new-ertiga" data-idx="8" value="ALL NEW ERTIGA CRUISE AT 2TONE"></td><td><input class="otr-input otr-price" data-slug="all-new-ertiga" data-idx="8" value="Rp 307.700.000"></td><td><button onclick="saveOTR('all-new-ertiga')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr></tbody>
-    </table>
-  </div>
-</div><div class="car-card" style="margin-bottom:20px;">
-  <div class="car-card-header"><h3>New Carry Pick Up</h3></div>
-  <div class="car-card-body" style="padding:0;">
-    <table class="table">
-      <thead><tr><th>TIPE</th><th>HARGA OTR</th><th></th></tr></thead>
-      <tbody id="otr-new-carry-pick-up"><tr><td><input class="otr-input" data-slug="new-carry-pick-up" data-idx="0" value="NEW CARRY PICK UP STD"></td><td><input class="otr-input otr-price" data-slug="new-carry-pick-up" data-idx="0" value="Rp 193.500.000"></td><td><button onclick="saveOTR('new-carry-pick-up')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="new-carry-pick-up" data-idx="1" value="NEW CARRY PICK UP AC"></td><td><input class="otr-input otr-price" data-slug="new-carry-pick-up" data-idx="1" value="Rp 201.700.000"></td><td><button onclick="saveOTR('new-carry-pick-up')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr><tr><td><input class="otr-input" data-slug="new-carry-pick-up" data-idx="2" value="NEW CARRY PICK UP AC-PS"></td><td><input class="otr-input otr-price" data-slug="new-carry-pick-up" data-idx="2" value="Rp 212.500.000"></td><td><button onclick="saveOTR('new-carry-pick-up')" style="padding:6px 12px;background:#1a3a8f;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;">Simpan</button></td></tr></tbody>
-    </table>
-  </div>
-</div>
-      </div>
-    </div>
     <!-- TEST DRIVE -->
     <div id="page-testdrive" class="page">
       <div class="card">
-        <div class="card-header"><span class="card-title">Semua Permintaan Test Drive</span></div>
+        <div class="card-header">
+          <span class="card-title">Semua Permintaan Test Drive</span>
+          <button class="btn-export" onclick="exportCSV('testdrive')">Export CSV</button>
+        </div>
         <table class="table">
           <thead><tr><th>NAMA</th><th>NO. HP</th><th>MOBIL</th><th>TANGGAL</th></tr></thead>
           <tbody id="tbodyTDFull"><tr><td colspan="4" style="text-align:center;color:#aaa;padding:30px;">Memuat data...</td></tr></tbody>
@@ -362,7 +157,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- SIMULASI -->
     <div id="page-simulasi" class="page">
       <div class="card">
-        <div class="card-header"><span class="card-title">Semua Permintaan Simulasi Kredit</span></div>
+        <div class="card-header">
+          <span class="card-title">Semua Permintaan Simulasi Kredit</span>
+          <button class="btn-export" onclick="exportCSV('simulasi')">Export CSV</button>
+        </div>
         <table class="table">
           <thead><tr><th>NAMA</th><th>NO. HP</th><th>MOBIL</th><th>TENOR</th><th>UANG MUKA</th><th>DOMISILI</th></tr></thead>
           <tbody id="tbodySimFull"><tr><td colspan="6" style="text-align:center;color:#aaa;padding:30px;">Memuat data...</td></tr></tbody>
@@ -381,35 +179,10 @@ const ADMIN_EMAIL='admin@suzukigedebage.com';
 const ADMIN_PASS='suzuki2026';
 const SALES_EMAIL='sales@suzukigedebage.com';
 const SALES_PASS='sales2026';
-let currentRole=''; // 'admin' atau 'sales'
+let currentRole='';
 
-const CARS=[
-  {slug:'grand-vitara',name:'Grand Vitara'},
-  {slug:'s-presso',name:'S-Presso'},
-  {slug:'apv',name:'APV'},
-  {slug:'new-xl7',name:'New XL7'},
-  {slug:'jimny',name:'Jimny'},
-  {slug:'fronx',name:'Fronx'},
-  {slug:'all-new-ertiga',name:'All New Ertiga'},
-  {slug:'new-carry-pick-up',name:'New Carry Pick Up'},
-];
-
-// Grup tipe per mobil. Kosong string = tidak ada grup
-const CAR_GROUPS={
-  'grand-vitara':[''],
-  's-presso':[''],
-  'apv':['SGX','GX','GL'],
-  'new-xl7':['Alpha Kuro','Alpha','Beta','Zeta'],
-  'jimny':['3-Door','5-Door'],
-  'fronx':['SGX 2TONE','SGX','GX','GL'],
-  'all-new-ertiga':['GX Hybrid','GL','GA','Cruise'],
-  'new-carry-pick-up':[''],
-};
-
-const IMG_TYPES=['listing','hero','exterior','interior'];
-const IMG_LABELS={listing:'Foto Listing (Kartu Produk)',hero:'Hero / Banner Utama',exterior:'Banner Eksterior',interior:'Banner Interior'};
-let currentImages={};
-let colorData={};
+let tdData=[];
+let simData=[];
 
 function h(s){return s?String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;'):''}
 function fmtDate(d){return d?new Date(d).toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric'}):''}
@@ -432,15 +205,10 @@ async function api(path,opts={}){
 function doLogin(){
   const e=document.getElementById('loginEmail').value;
   const p=document.getElementById('loginPass').value;
-  if(e===ADMIN_EMAIL&&p===ADMIN_PASS){
-    currentRole='admin';
-    applyRole();
-    document.getElementById('loginScreen').style.display='none';
-    document.getElementById('adminApp').style.display='block';
-    loadDashboard();loadImageData();
-  }else if(e===SALES_EMAIL&&p===SALES_PASS){
-    currentRole='sales';
-    applyRole();
+  if((e===ADMIN_EMAIL&&p===ADMIN_PASS)||(e===SALES_EMAIL&&p===SALES_PASS)){
+    currentRole=e===ADMIN_EMAIL?'admin':'sales';
+    document.getElementById('roleBadge').textContent=currentRole==='admin'?'Admin':'Sales';
+    document.getElementById('roleBadge').style.background=currentRole==='admin'?'#1a3a8f':'#2e7d32';
     document.getElementById('loginScreen').style.display='none';
     document.getElementById('adminApp').style.display='block';
     loadDashboard();
@@ -449,22 +217,8 @@ function doLogin(){
   }
 }
 
-function applyRole(){
-  // Menu yang hanya boleh dilihat admin
-  const adminOnlyMenus=['menu-delivery','menu-hero','menu-gambar','menu-warna','menu-otr'];
-  adminOnlyMenus.forEach(id=>{
-    const el=document.getElementById(id);
-    if(el) el.style.display=currentRole==='admin'?'':'none';
-  });
-  // Tampilkan badge role di topbar
-  const badge=document.getElementById('roleBadge');
-  if(badge){
-    badge.textContent=currentRole==='admin'?'Admin':'Sales';
-    badge.style.background=currentRole==='admin'?'#1a3a8f':'#2e7d32';
-  }
-}
-
 document.addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+
 function doLogout(){
   currentRole='';
   document.getElementById('loginScreen').style.display='flex';
@@ -479,150 +233,11 @@ async function showPage(name,el){
   document.querySelectorAll('.menu-item').forEach(m=>m.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   el.classList.add('active');
-  const titles={dashboard:'Dashboard',delivery:'Foto Delivery',hero:'Hero Banner',gambar:'Gambar Produk',warna:'Warna Mobil',testdrive:'Test Drive',simulasi:'Simulasi Kredit',otr:'Update OTR'};
+  const titles={dashboard:'Dashboard',testdrive:'Test Drive',simulasi:'Simulasi Kredit'};
   document.getElementById('pageTitle').textContent=titles[name]||name;
   if(name==='testdrive')loadTDFull();
   if(name==='simulasi')loadSimFull();
-  if(name==='gambar')await renderCarGrid();
-  if(name==='warna')loadColorPage();
-  if(name==='hero')loadHeroBanners();
-  if(name==='delivery')loadDeliveryPhotos();
 }
-
-// ── FOTO DELIVERY ─────────────────────────────────────────
-async function loadDeliveryPhotos(){
-  const el=document.getElementById('deliveryPhotoList');
-  el.innerHTML='<div style="text-align:center;padding:40px;color:#aaa;">Memuat...</div>';
-  try{
-    const r=await api('/rest/v1/delivery_photos?order=sort_order,id&select=*');
-    const rows=await r.json();
-    if(!rows.length){el.innerHTML='<div style="text-align:center;padding:40px;color:#aaa;">Belum ada foto. Upload di atas.</div>';return;}
-    el.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;">'+
-      rows.map(p=>`
-        <div style="position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;background:#f5f5f5;">
-          <img src="${h(p.image_url)}" style="width:100%;height:100%;object-fit:cover;">
-          <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.5);padding:6px 8px;display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:11px;color:#fff;">Urutan: ${p.sort_order}</span>
-            <button onclick="deleteDeliveryPhoto(${p.id},'${h(p.image_url)}')" style="padding:3px 10px;background:#e53e3e;color:#fff;border:none;border-radius:3px;font-size:11px;font-weight:700;cursor:pointer;">HAPUS</button>
-          </div>
-        </div>`).join('')+
-    '</div>';
-  }catch(e){el.innerHTML='<div style="color:red;padding:20px;">Gagal memuat data.</div>';}
-}
-
-async function uploadDeliveryPhoto(){
-  const file=document.getElementById('deliveryFile').files[0];
-  const order=parseInt(document.getElementById('deliveryOrder').value)||0;
-  const status=document.getElementById('deliveryUploadStatus');
-  if(!file){status.innerHTML='<span style="color:red;">Pilih file gambar terlebih dahulu.</span>';return;}
-  status.innerHTML='<span style="color:#888;">Mengupload...</span>';
-  try{
-    const ext=file.name.split('.').pop();
-    const fname='delivery-'+Date.now()+'.'+ext;
-    const upRes=await fetch(SB+'/storage/v1/object/delivery-photos/'+fname,{
-      method:'POST',
-      headers:{'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':file.type,'x-upsert':'true'},
-      body:file
-    });
-    if(!upRes.ok)throw new Error('Upload gagal: '+upRes.status);
-    const imageUrl=SB+'/storage/v1/object/public/delivery-photos/'+fname;
-    const insRes=await fetch(SB+'/rest/v1/delivery_photos',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY},
-      body:JSON.stringify({image_url:imageUrl,sort_order:order})
-    });
-    if(!insRes.ok)throw new Error('Simpan data gagal');
-    status.innerHTML='<span style="color:green;">✓ Foto berhasil diupload!</span>';
-    document.getElementById('deliveryFile').value='';
-    document.getElementById('deliveryOrder').value='0';
-    loadDeliveryPhotos();
-  }catch(e){status.innerHTML='<span style="color:red;">Gagal: '+e.message+'</span>';}
-}
-
-async function deleteDeliveryPhoto(id,imageUrl){
-  if(!confirm('Hapus foto ini?'))return;
-  try{
-    const fname=imageUrl.split('/delivery-photos/').pop();
-    await fetch(SB+'/storage/v1/object/delivery-photos/'+fname,{
-      method:'DELETE',headers:{'apikey':KEY,'Authorization':'Bearer '+KEY}
-    });
-    await fetch(SB+'/rest/v1/delivery_photos?id=eq.'+id,{
-      method:'DELETE',headers:{'apikey':KEY,'Authorization':'Bearer '+KEY}
-    });
-    loadDeliveryPhotos();
-  }catch(e){alert('Gagal menghapus: '+e.message);}
-}
-// ─────────────────────────────────────────────────────────
-
-// ── HERO BANNER ──────────────────────────────────────────
-async function loadHeroBanners(){
-  const el=document.getElementById('heroBannerList');
-  el.innerHTML='<div style="text-align:center;padding:40px;color:#aaa;">Memuat...</div>';
-  try{
-    const r=await api('/rest/v1/hero_banners?order=sort_order,id&select=*');
-    const rows=await r.json();
-    if(!rows.length){el.innerHTML='<div style="text-align:center;padding:40px;color:#aaa;">Belum ada banner. Upload gambar di atas.</div>';return;}
-    el.innerHTML=rows.map(b=>`
-      <div style="display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid #f0f0f0;">
-        <img src="${h(b.image_url)}" style="width:160px;height:90px;object-fit:cover;border-radius:4px;background:#f5f5f5;">
-        <div style="flex:1;">
-          <div style="font-size:12px;color:#888;">Urutan: <strong>${b.sort_order}</strong></div>
-          <div style="font-size:11px;color:#bbb;margin-top:4px;word-break:break-all;">${h(b.image_url)}</div>
-        </div>
-        <button onclick="deleteHeroBanner(${b.id},'${h(b.image_url)}')" style="padding:8px 16px;background:#fff;color:#e53e3e;border:1.5px solid #e53e3e;border-radius:4px;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;">HAPUS</button>
-      </div>`).join('');
-  }catch(e){el.innerHTML='<div style="color:red;padding:20px;">Gagal memuat data.</div>';}
-}
-
-async function uploadHeroBanner(){
-  const file=document.getElementById('heroBannerFile').files[0];
-  const order=parseInt(document.getElementById('heroBannerOrder').value)||0;
-  const status=document.getElementById('heroUploadStatus');
-  if(!file){status.innerHTML='<span style="color:red;">Pilih file gambar terlebih dahulu.</span>';return;}
-  status.innerHTML='<span style="color:#888;">Mengupload...</span>';
-  try{
-    // Upload to Supabase Storage bucket "hero-banners"
-    const ext=file.name.split('.').pop();
-    const fname='banner-'+Date.now()+'.'+ext;
-    const upRes=await fetch(SB+'/storage/v1/object/hero-banners/'+fname,{
-      method:'POST',
-      headers:{'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':file.type,'x-upsert':'true'},
-      body:file
-    });
-    if(!upRes.ok)throw new Error('Upload gagal: '+upRes.status);
-    const imageUrl=SB+'/storage/v1/object/public/hero-banners/'+fname;
-    // Insert record
-    const insRes=await fetch(SB+'/rest/v1/hero_banners',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY},
-      body:JSON.stringify({image_url:imageUrl,sort_order:order,is_active:true})
-    });
-    if(!insRes.ok)throw new Error('Simpan data gagal');
-    status.innerHTML='<span style="color:green;">✓ Banner berhasil diupload!</span>';
-    document.getElementById('heroBannerFile').value='';
-    document.getElementById('heroBannerOrder').value='0';
-    loadHeroBanners();
-  }catch(e){status.innerHTML='<span style="color:red;">Gagal: '+e.message+'</span>';}
-}
-
-async function deleteHeroBanner(id,imageUrl){
-  if(!confirm('Hapus banner ini?'))return;
-  try{
-    // Delete storage file
-    const fname=imageUrl.split('/hero-banners/').pop();
-    await fetch(SB+'/storage/v1/object/hero-banners/'+fname,{
-      method:'DELETE',
-      headers:{'apikey':KEY,'Authorization':'Bearer '+KEY}
-    });
-    // Delete DB record
-    await fetch(SB+'/rest/v1/hero_banners?id=eq.'+id,{
-      method:'DELETE',
-      headers:{'apikey':KEY,'Authorization':'Bearer '+KEY}
-    });
-    loadHeroBanners();
-  }catch(e){alert('Gagal menghapus: '+e.message);}
-}
-// ─────────────────────────────────────────────────────────
 
 async function loadDashboard(){
   try{
@@ -630,9 +245,15 @@ async function loadDashboard(){
       api('/rest/v1/test_drive?select=*&order=id.desc&limit=5'),
       api('/rest/v1/simulasi_kredit?select=*&order=id.desc&limit=5')
     ]);
+    const [r3,r4]=await Promise.all([
+      api('/rest/v1/test_drive?select=id',{headers:{'Prefer':'count=exact'}}),
+      api('/rest/v1/simulasi_kredit?select=id',{headers:{'Prefer':'count=exact'}})
+    ]);
     const td=await r1.json(),sim=await r2.json();
-    document.getElementById('statTD').textContent=td.length>=5?'5+':td.length;
-    document.getElementById('statSim').textContent=sim.length>=5?'5+':sim.length;
+    const tdCount=r3.headers.get('content-range')?.split('/')[1]??td.length;
+    const simCount=r4.headers.get('content-range')?.split('/')[1]??sim.length;
+    document.getElementById('statTD').textContent=tdCount;
+    document.getElementById('statSim').textContent=simCount;
     document.getElementById('tbodyTD').innerHTML=td.length
       ?td.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.tipe_mobil)}</td><td>${fmtDate(r.tanggal)}</td></tr>`).join('')
       :'<tr><td colspan="4" style="text-align:center;color:#aaa;padding:20px;">Belum ada data</td></tr>';
@@ -644,242 +265,36 @@ async function loadDashboard(){
 
 async function loadTDFull(){
   const r=await api('/rest/v1/test_drive?select=*&order=id.desc');
-  const d=await r.json();
-  document.getElementById('tbodyTDFull').innerHTML=d.length
-    ?d.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.tipe_mobil)}</td><td>${fmtDate(r.tanggal)}</td></tr>`).join('')
+  tdData=await r.json();
+  document.getElementById('tbodyTDFull').innerHTML=tdData.length
+    ?tdData.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.tipe_mobil)}</td><td>${fmtDate(r.tanggal)}</td></tr>`).join('')
     :'<tr><td colspan="4" style="text-align:center;color:#aaa;padding:20px;">Belum ada data</td></tr>';
 }
 
 async function loadSimFull(){
   const r=await api('/rest/v1/simulasi_kredit?select=*&order=id.desc');
-  const d=await r.json();
-  document.getElementById('tbodySimFull').innerHTML=d.length
-    ?d.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.tipe_mobil)}</td><td>${h(r.tenor)}</td><td>${fmtRp(r.uang_muka)}</td><td>${h(r.asal_kota)}</td></tr>`).join('')
+  simData=await r.json();
+  document.getElementById('tbodySimFull').innerHTML=simData.length
+    ?simData.map(r=>`<tr><td>${h(r.nama)}</td><td>${h(r.no_hp)}</td><td>${h(r.tipe_mobil)}</td><td>${h(r.tenor)}</td><td>${fmtRp(r.uang_muka)}</td><td>${h(r.asal_kota)}</td></tr>`).join('')
     :'<tr><td colspan="6" style="text-align:center;color:#aaa;padding:20px;">Belum ada data</td></tr>';
 }
 
-async function loadImageData(){
-  currentImages={};
-  const r=await api('/rest/v1/product_images?select=*');
-  const d=await r.json();
-  if(Array.isArray(d))d.forEach(row=>{currentImages[row.car_slug]=row;});
-}
-
-async function renderCarGrid(){
-  const grid=document.getElementById('carGrid');
-  grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#aaa;">Memuat data...</div>';
-  await loadImageData();
-  grid.innerHTML=CARS.map(car=>{
-    const imgs=currentImages[car.slug]||{};
-    const rows=IMG_TYPES.map(type=>{
-      const url=imgs['img_'+type]||'';
-      const previewHtml=url
-        ?`<img class="img-preview" id="prev-${car.slug}-${type}" src="${url}" alt="${type}">`
-        :`<div class="img-preview-placeholder" id="prev-${car.slug}-${type}">BELUM ADA GAMBAR</div>`;
-      return `<div class="img-upload-row">
-  <div class="img-label">${IMG_LABELS[type]}</div>
-  ${previewHtml}
-  <div class="upload-row">
-    <input type="file" class="file-input" id="file-${car.slug}-${type}" accept="image/*" onchange="onFileChange('${car.slug}','${type}',this)">
-    <button class="btn-choose" onclick="document.getElementById('file-${car.slug}-${type}').click()">Pilih File</button>
-    <span class="file-name" id="fname-${car.slug}-${type}">Belum dipilih</span>
-    <button class="btn-upload" id="btnup-${car.slug}-${type}" onclick="uploadImage('${car.slug}','${type}')" disabled>Upload</button>
-  </div>
-  <div class="upload-status" id="status-${car.slug}-${type}"></div>
-</div>`;
-    }).join('');
-    return `<div class="car-card"><div class="car-card-header"><h3>${car.name}</h3></div><div class="car-card-body">${rows}</div></div>`;
-  }).join('');
-}
-
-function onFileChange(slug,type,input){
-  const f=input.files[0];if(!f)return;
-  document.getElementById(`fname-${slug}-${type}`).textContent=f.name;
-  document.getElementById(`btnup-${slug}-${type}`).disabled=false;
-  document.getElementById(`status-${slug}-${type}`).textContent='';
-}
-
-async function uploadImage(slug,type){
-  const input=document.getElementById(`file-${slug}-${type}`);
-  const btn=document.getElementById(`btnup-${slug}-${type}`);
-  const status=document.getElementById(`status-${slug}-${type}`);
-  const f=input.files[0];if(!f)return;
-  btn.disabled=true;btn.textContent='Uploading...';
-  status.textContent='Mengupload gambar...';status.className='upload-status loading';
-  try{
-    const ext=f.name.split('.').pop();
-    const path=`${slug}/${type}-${Date.now()}.${ext}`;
-    const uploadRes=await fetch(`${SB}/storage/v1/object/product-images/${path}`,{
-      method:'POST',headers:{'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':f.type,'x-upsert':'true'},body:f
-    });
-    if(!uploadRes.ok)throw new Error('Upload gagal: '+(await uploadRes.text()));
-    const publicUrl=`${SB}/storage/v1/object/public/product-images/${path}`;
-    const col='img_'+type;
-    const updateRes=await api(`/rest/v1/product_images?car_slug=eq.${slug}`,{
-      method:'PATCH',body:JSON.stringify({[col]:publicUrl,updated_at:new Date().toISOString()})
-    });
-    if(!updateRes.ok)throw new Error('Gagal update database');
-    if(!currentImages[slug])currentImages[slug]={};
-    currentImages[slug][col]=publicUrl;
-    const prevEl=document.getElementById(`prev-${slug}-${type}`);
-    if(prevEl.tagName==='DIV'){
-      const img=document.createElement('img');img.className='img-preview';img.id=`prev-${slug}-${type}`;img.src=publicUrl;img.alt=type;prevEl.replaceWith(img);
-    }else{prevEl.src=publicUrl+'?t='+Date.now();}
-    status.textContent='✓ Berhasil diupload!';status.className='upload-status ok';
-    btn.textContent='Upload';document.getElementById(`fname-${slug}-${type}`).textContent='Belum dipilih';input.value='';
-    toast('Gambar '+IMG_LABELS[type]+' berhasil diupload!');
-  }catch(err){
-    status.textContent='✗ '+err.message;status.className='upload-status err';btn.textContent='Upload';btn.disabled=false;toast(err.message,false);
+function exportCSV(type){
+  let rows,headers,filename;
+  if(type==='testdrive'){
+    headers=['Nama','No HP','Tipe Mobil','Tanggal'];
+    rows=tdData.map(r=>[r.nama,r.no_hp,r.tipe_mobil,fmtDate(r.tanggal)]);
+    filename='test-drive.csv';
+  }else{
+    headers=['Nama','No HP','Tipe Mobil','Tenor','Uang Muka','Domisili'];
+    rows=simData.map(r=>[r.nama,r.no_hp,r.tipe_mobil,r.tenor,r.uang_muka,r.asal_kota]);
+    filename='simulasi-kredit.csv';
   }
-}
-
-// ===== WARNA MOBIL =====
-async function loadColorPage(){
-  const container=document.getElementById('colorCarList');
-  container.innerHTML='<div style="text-align:center;padding:40px;color:#aaa;">Memuat data...</div>';
-  try{
-    const r=await api('/rest/v1/color_variants?select=*&order=car_slug,sort_order,id');
-    const all=await r.json();
-    colorData={};
-    all.forEach(row=>{
-      if(!colorData[row.car_slug])colorData[row.car_slug]=[];
-      colorData[row.car_slug].push(row);
-    });
-    container.innerHTML=CARS.map(car=>renderColorCar(car)).join('');
-  }catch(e){
-    container.innerHTML=`<div style="color:#e53935;padding:20px;">Gagal memuat data: ${e.message}</div>`;
-  }
-}
-
-function renderColorCar(car){
-  const groups=CAR_GROUPS[car.slug]||[''];
-  const hasGroups=!(groups.length===1&&groups[0]==='');
-  const groupOptions=hasGroups
-    ?groups.map(g=>`<option value="${g}">${g}</option>`).join('')
-    :'<option value="">-</option>';
-  const items=colorData[car.slug]||[];
-  const itemsHtml=items.length
-    ?items.map(item=>`
-      <div class="color-item" id="ci-${item.id}">
-        <button class="color-item-del" onclick="deleteColor(${item.id},'${car.slug}')">✕</button>
-        <img src="${h(item.image_url)}" alt="${h(item.color_name)}">
-        <div class="color-item-info">
-          ${item.variant_group?`<div class="color-item-group">${h(item.variant_group)}</div>`:''}
-          <div class="color-item-name">${h(item.color_name)}</div>
-        </div>
-      </div>`).join('')
-    :'<div class="color-empty">Belum ada warna. Tambah di atas.</div>';
-
-  return `<div class="color-car-section">
-  <div class="color-car-header"><h3>${car.name}</h3></div>
-  <div class="color-car-body">
-    <div class="color-add-form">
-      <div class="form-row">
-        <div>
-          <label>Nama Warna</label>
-          <input type="text" id="cn-${car.slug}" placeholder="Contoh: Cool Black">
-        </div>
-        <div>
-          <label>Tipe / Grup</label>
-          <select id="cg-${car.slug}">${groupOptions}</select>
-        </div>
-      </div>
-      <label style="margin-top:12px;">Foto Mobil (warna ini)</label>
-      <div class="upload-row" style="margin-top:6px;">
-        <input type="file" class="file-input" id="cf-${car.slug}" accept="image/*"
-          onchange="document.getElementById('cfn-${car.slug}').textContent=this.files[0]?.name||'Belum dipilih'">
-        <button class="btn-choose" onclick="document.getElementById('cf-${car.slug}').click()">Pilih File</button>
-        <span class="file-name" id="cfn-${car.slug}">Belum dipilih</span>
-      </div>
-      <div class="upload-status" id="cs-${car.slug}"></div>
-      <button class="btn-add-color" onclick="addColor('${car.slug}')">+ TAMBAH WARNA</button>
-    </div>
-    <div class="color-list" id="cl-${car.slug}">${itemsHtml}</div>
-  </div>
-</div>`;
-}
-
-async function addColor(slug){
-  const nameEl=document.getElementById(`cn-${slug}`);
-  const groupEl=document.getElementById(`cg-${slug}`);
-  const fileEl=document.getElementById(`cf-${slug}`);
-  const statusEl=document.getElementById(`cs-${slug}`);
-  const name=nameEl.value.trim();
-  const group=groupEl.value;
-  const file=fileEl.files[0];
-  if(!name){alert('Masukkan nama warna terlebih dahulu.');return;}
-  if(!file){alert('Pilih foto mobil terlebih dahulu.');return;}
-  statusEl.textContent='Mengupload foto...';statusEl.className='upload-status loading';
-  try{
-    const ext=file.name.split('.').pop();
-    const path=`${slug}/color-${Date.now()}.${ext}`;
-    const uploadRes=await fetch(`${SB}/storage/v1/object/product-images/${path}`,{
-      method:'POST',headers:{'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':file.type,'x-upsert':'true'},body:file
-    });
-    if(!uploadRes.ok)throw new Error('Upload foto gagal: '+(await uploadRes.text()));
-    const imageUrl=`${SB}/storage/v1/object/public/product-images/${path}`;
-    const insertRes=await api('/rest/v1/color_variants',{
-      method:'POST',
-      headers:{'Prefer':'return=representation'},
-      body:JSON.stringify({car_slug:slug,variant_group:group,color_name:name,image_url:imageUrl,sort_order:0})
-    });
-    if(!insertRes.ok)throw new Error('Gagal simpan ke database: '+(await insertRes.text()));
-    const [newRow]=await insertRes.json();
-    if(!colorData[slug])colorData[slug]=[];
-    colorData[slug].push(newRow);
-    const listEl=document.getElementById(`cl-${slug}`);
-    const empty=listEl.querySelector('.color-empty');
-    if(empty)empty.remove();
-    const div=document.createElement('div');
-    div.className='color-item';div.id=`ci-${newRow.id}`;
-    div.innerHTML=`
-      <button class="color-item-del" onclick="deleteColor(${newRow.id},'${slug}')">✕</button>
-      <img src="${imageUrl}" alt="${h(name)}">
-      <div class="color-item-info">
-        ${group?`<div class="color-item-group">${h(group)}</div>`:''}
-        <div class="color-item-name">${h(name)}</div>
-      </div>`;
-    listEl.appendChild(div);
-    nameEl.value='';fileEl.value='';
-    document.getElementById(`cfn-${slug}`).textContent='Belum dipilih';
-    statusEl.textContent='✓ Warna berhasil ditambahkan!';statusEl.className='upload-status ok';
-    toast('Warna '+name+' berhasil ditambahkan!');
-    setTimeout(()=>{statusEl.textContent='';},3000);
-  }catch(err){
-    statusEl.textContent='✗ '+err.message;statusEl.className='upload-status err';toast(err.message,false);
-  }
-}
-
-async function deleteColor(id,slug){
-  if(!confirm('Hapus warna ini?'))return;
-  try{
-    const r=await api(`/rest/v1/color_variants?id=eq.${id}`,{method:'DELETE'});
-    if(!r.ok)throw new Error('Gagal hapus');
-    document.getElementById(`ci-${id}`)?.remove();
-    colorData[slug]=(colorData[slug]||[]).filter(c=>c.id!==id);
-    const listEl=document.getElementById(`cl-${slug}`);
-    if(listEl&&listEl.querySelectorAll('.color-item').length===0){
-      listEl.innerHTML='<div class="color-empty">Belum ada warna. Tambah di atas.</div>';
-    }
-    toast('Warna berhasil dihapus!');
-  }catch(err){toast('Gagal hapus: '+err.message,false);}
-}
-
-// OTR data storage (in-memory, update car page via localStorage key pattern)
-const OTR_PAGES={
-  'grand-vitara':'grand-vitara','s-presso':'s-presso','apv':'apv',
-  'new-xl7':'new-xl7','jimny':'jimny','fronx':'fronx',
-  'all-new-ertiga':'all-new-ertiga','new-carry-pick-up':'new-carry-pick-up'
-};
-function saveOTR(slug){
-  const rows=document.querySelectorAll(`#otr-${slug} tr`);
-  const data=[];
-  rows.forEach(tr=>{
-    const inputs=tr.querySelectorAll('input.otr-input');
-    if(inputs.length>=2) data.push({tipe:inputs[0].value,harga:inputs[1].value});
-  });
-  localStorage.setItem('otr_'+slug, JSON.stringify(data));
-  toast('OTR '+slug+' disimpan! Update halaman dengan copy-paste nilai ke file HTML.');
+  const csv=[headers,...rows].map(r=>r.map(v=>'"'+(v??'').toString().replace(/"/g,'""')+'"').join(',')).join('\n');
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,\uFEFF'+encodeURIComponent(csv);
+  a.download=filename;a.click();
+  toast('File CSV berhasil diunduh!');
 }
 </script>
 </body>
