@@ -32,16 +32,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--white);dis
 .nav-mobile.open{display:block;}
 
 /* HERO SLIDER */
-.hero{position:relative;width:100%;margin-top:68px;overflow:hidden;background:#000;padding-top:56.25%;}
+.hero{cursor:grab;position:relative;width:100%;margin-top:68px;overflow:hidden;background:#000;padding-top:56.25%;}
 .slides{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;transition:transform 0.6s cubic-bezier(.77,0,.18,1);will-change:transform;}
 .slide{min-width:100%;height:100%;flex-shrink:0;position:relative;overflow:hidden;}
 .slide img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;}
 .slide.slide-placeholder{display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#0a1628 0%,#1c3a6e 45%,#0d3a8a 100%);}
 @media(max-width:768px){.hero{padding-top:56.25%;}}
-.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.45);color:white;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:26px;transition:background 0.2s;z-index:10;user-select:none;}
-.hero-arrow:hover{background:rgba(255,255,255,0.28);}
-.hero-arrow.left{left:20px;}
-.hero-arrow.right{right:20px;}
+
+
+
+
 .hero-dots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;}
 .dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.45);cursor:pointer;transition:background 0.2s,transform 0.2s;}
 .dot.active{background:white;transform:scale(1.3);}
@@ -206,8 +206,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
   </div>
-  <div class="hero-arrow left" onclick="changeSlide(-1)">&#8249;</div>
-  <div class="hero-arrow right" onclick="changeSlide(1)">&#8250;</div>
   <div class="hero-dots" id="dots"></div>
 </section>
 
@@ -540,6 +538,10 @@ const heroEl=document.getElementById('hero');
 let startX=0;
 heroEl.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});
 heroEl.addEventListener('touchend',e=>{if(Math.abs(startX-e.changedTouches[0].clientX)>50)changeSlide(startX>e.changedTouches[0].clientX?1:-1);});
+let isDrag=false,dragMoved=false;
+heroEl.addEventListener('mousedown',e=>{startX=e.clientX;isDrag=true;dragMoved=false;heroEl.style.cursor='grabbing';});
+window.addEventListener('mousemove',e=>{if(isDrag&&Math.abs(e.clientX-startX)>5)dragMoved=true;});
+window.addEventListener('mouseup',e=>{if(!isDrag)return;isDrag=false;heroEl.style.cursor='grab';if(dragMoved&&Math.abs(e.clientX-startX)>50)changeSlide(startX>e.clientX?1:-1);});
 
 // SCROLL
 window.addEventListener('scroll',()=>{

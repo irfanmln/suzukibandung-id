@@ -24,7 +24,7 @@ nav{position:fixed;top:0;left:0;width:100%;background:#fff;z-index:1000;box-shad
 .nav-links a:hover{color:#1a3a8f;}
 .hero{position:relative;width:100%;height:100vh;min-height:580px;overflow:hidden;margin-top:62px;background:#1a1a2e;}
 .hero-img{width:100%;height:100%;object-fit:cover;object-position:center top;}
-.hero-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a3a8f,#0f2460);color:rgba(255,255,255,0.3);font-size:18px;font-weight:600;letter-spacing:2px;}
+
 .hero-overlay{position:absolute;bottom:0;left:0;width:100%;padding:40px 60px;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);}
 .hero-name{font-size:52px;font-weight:900;color:#fff;letter-spacing:2px;text-transform:uppercase;}
 .hero-price{font-size:20px;font-weight:600;color:#fff;margin-top:6px;letter-spacing:1px;}
@@ -37,7 +37,7 @@ nav{position:fixed;top:0;left:0;width:100%;background:#fff;z-index:1000;box-shad
 .sec-desc p{max-width:820px;margin:0 auto;font-size:16px;line-height:1.9;color:#444;}
 .sec-banner{width:100%;height:70vh;min-height:460px;overflow:hidden;margin-top:60px;background:#f0f0f0;}
 .sec-banner img{width:100%;height:100%;object-fit:cover;}
-.sec-banner-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:15px;font-weight:600;letter-spacing:1px;}
+
 .sec-2col{display:grid;grid-template-columns:1fr 1fr;padding:70px 80px;align-items:start;}
 .sec-2col .col-t{font-size:28px;font-weight:800;color:#111;line-height:1.3;padding-right:50px;}
 .sec-2col .col-d{font-size:15px;line-height:1.9;color:#555;}
@@ -151,18 +151,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   <a href="https://wa.me/6285173340806" target="_blank">HUBUNGI KAMI</a>
 </div><div class="hero">
-  <img id="heroImg" class="hero-img" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top;">
-  <div id="heroPlaceholder" class="hero-placeholder">GAMBAR BELUM DIUPLOAD</div>
+  <img id="heroImg" class="hero-img" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
   <div class="hero-overlay">
     <div class="hero-name">Jimny</div>
     <div class="hero-price">MULAI 511.550.000 IDR</div>
   </div>
 </div><div class="sec-desc"><p>Let the legend takes you, in every turn and every acceleration. Because you are not just driving, you are forging a legacy.</p></div><div class="sec-banner">
-  <img id="extImg" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;">
-  <div id="extPlaceholder" class="sec-banner-placeholder">GAMBAR BELUM DIUPLOAD</div>
+  <img id="extImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-2col"><div class="col-t">The Shape of Legacy</div><div class="col-d">With JIMNY's legendary design, cruise across any terrain with style. The tough and remarkable exterior is built to withstand any obstacle.</div></div><div class="sec-banner">
-  <img id="intImg" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;">
-  <div id="intPlaceholder" class="sec-banner-placeholder">GAMBAR BELUM DIUPLOAD</div>
+  <img id="intImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-ct"><h2>Elevate The Journey Within</h2><p>This is where tech and comfort meet, crafted with premium materials. Every drive is elevated, making the exploration an unforgettable experience.</p></div><div class="color-sec">
   <div class="color-sec-title">PILIHAN WARNA</div>
   <div class="color-main-wrap"><img class="color-main" id="colorMainImg" src="" alt=""></div>
@@ -236,7 +233,7 @@ document.querySelectorAll('.modal-bg').forEach(m=>m.addEventListener('click',fun
 function switchColorTab(group,btn){document.querySelectorAll('.ctab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.ctab-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');const panel=document.getElementById('cpanel-'+group);if(panel)panel.classList.add('active');const ft=panel&&panel.querySelector('.color-thumb');if(ft)ft.click();}
 async function submitSimulasi(e){e.preventDefault();const nama=document.getElementById('sim-nama').value.trim();const hp=document.getElementById('sim-hp').value.trim();if(!nama||!hp){alert('Harap isi Nama dan No HP.');return;}const btn=e.target.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Mengirim...';try{await fetch(SB_URL+'/rest/v1/simulasi_kredit',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({nama,no_hp:hp,tipe_mobil:document.getElementById('sim-mobil').value,tenor:document.getElementById('sim-tenor').value,uang_muka:document.getElementById('sim-dp').value?parseInt(document.getElementById('sim-dp').value):null,asal_kota:document.getElementById('sim-domisili')?document.getElementById('sim-domisili').value.trim():''})});e.target.style.display='none';const s=document.getElementById('simSuccess');if(s)s.style.display='block';else alert('Terima kasih!');}catch(err){alert('Gagal. Coba lagi.');btn.disabled=false;btn.textContent='KIRIM PERMINTAAN';}}
 async function submitTestDriveForm(e){e.preventDefault();const nama=document.getElementById('td-nama').value.trim();const hp=document.getElementById('td-hp').value.trim();if(!nama||!hp){alert('Harap isi Nama dan No HP.');return;}const btn=e.target.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Mengirim...';try{await fetch(SB_URL+'/rest/v1/test_drive',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({nama,no_hp:hp,tipe_mobil:document.getElementById('td-mobil').value,tanggal:document.getElementById('td-tgl').value,email:''})});e.target.style.display='none';const s=document.getElementById('tdSuccess');if(s)s.style.display='block';else alert('Terima kasih!');}catch(err){alert('Gagal. Coba lagi.');btn.disabled=false;btn.textContent='KIRIM PERMINTAAN';}}
-async function loadImages(){try{const r=await fetch(SB_URL+'/rest/v1/product_images?car_slug=eq.'+CAR_SLUG+'&select=*',{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});const rows=await r.json();if(!rows||!rows.length)return;const d=rows[0];if(d.img_hero&&d.img_hero.trim()){const el=document.getElementById('heroImg');if(el){el.src=d.img_hero;el.style.display='block';}const ph=document.getElementById('heroPlaceholder');if(ph)ph.style.display='none';}if(d.img_exterior&&d.img_exterior.trim()){const el=document.getElementById('extImg');if(el){el.src=d.img_exterior;el.style.display='block';}const ph=document.getElementById('extPlaceholder');if(ph)ph.style.display='none';}if(d.img_interior&&d.img_interior.trim()){const el=document.getElementById('intImg');if(el){el.src=d.img_interior;el.style.display='block';}const ph=document.getElementById('intPlaceholder');if(ph)ph.style.display='none';}}catch(e){console.error('loadImages:',e);}}
+async function loadImages(){try{const r=await fetch(SB_URL+'/rest/v1/product_images?car_slug=eq.'+CAR_SLUG+'&select=*',{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
 async function loadColors(){
   try{
     const r=await fetch(SB_URL+'/rest/v1/color_variants?car_slug=eq.'+CAR_SLUG+'&order=sort_order,id&select=*',{headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
