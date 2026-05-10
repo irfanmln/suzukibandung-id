@@ -9,6 +9,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TMDPZGQ9');</script>
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://duxelkiauevxwmyukrsg.supabase.co">
+<link rel="preconnect" href="https://jglkpcywzmmaetbxwllr.supabase.co" crossorigin>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>New XL7 - Suzuki NJS Gedebage</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -316,7 +318,7 @@ async function loadColors(){
     }
   }catch(e){console.error('loadColors:',e);}
 }
-loadImages();loadColors();
+Promise.all([loadImages(), loadColors()]);
 </script>
 </body>
 </html>
