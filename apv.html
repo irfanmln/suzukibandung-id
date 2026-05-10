@@ -156,15 +156,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   <a href="https://wa.me/6288224530225" target="_blank">HUBUNGI KAMI</a>
 </div><div class="hero img-loading">
-  <img id="heroImg" class="hero-img" onload="this.classList.add('loaded');this.closest('.hero').classList.remove('img-loading')" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+  <img id="heroImg" class="hero-img" onload="this.classList.add('loaded');this.closest('.hero').classList.remove('img-loading')" src="/images/hero-apv.webp" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
   <div class="hero-overlay">
     <div class="hero-name">APV</div>
     <div class="hero-price">MULAI 228.200.000 IDR</div>
   </div>
 </div><div class="sec-desc"><p>Apapun bisa anda lakukan, mulai dari menyenangkan istri berbelanja, emanjakan anak-anak ke tempat rekreasi, berlibur bersama keluarga besar, hingga mengembangkan bisnis dan usaha. Berkendara terasa lebih aman dan nyaman.</p></div><div class="sec-banner">
-  <img id="extImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+  <img id="extImg" src="/images/exterior-apv.webp" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-2col"><div class="col-t">Semakin Berkelas dengan Tampilan Mewah</div><div class="col-d">Desain baru pada eksterior memiliki kesan yang elegan dan tangguh menjadikan New APV Arena sebagai mobil multifungsi untuk menemani setiap langkah anda.</div></div><div class="sec-banner">
-  <img id="intImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+  <img id="intImg" src="/images/interior-apv.webp" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-ct"><h2>Semakin Luas Dan Nyaman</h2><p>Desain baru pada Interior berkesan elegan dengan beragam fungsi, kenyamanan serta kemewahan yang berpadu sangat indah menjadikan APV Arena tak lekang oleh waktu.</p></div><div class="color-sec">
   <div class="color-sec-title">PILIHAN WARNA</div>
   <div class="color-main-wrap"><img class="color-main" id="colorMainImg" src="" alt=""></div>
@@ -318,7 +318,7 @@ async function loadColors(){
     }
   }catch(e){console.error('loadColors:',e);}
 }
-Promise.all([loadImages(), loadColors()]);
+loadColors();
 </script>
 </body>
 </html>

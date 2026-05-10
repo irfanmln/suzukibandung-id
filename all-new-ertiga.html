@@ -156,15 +156,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   <a href="https://wa.me/6288224530225" target="_blank">HUBUNGI KAMI</a>
 </div><div class="hero img-loading">
-  <img id="heroImg" class="hero-img" onload="this.classList.add('loaded');this.closest('.hero').classList.remove('img-loading')" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+  <img id="heroImg" class="hero-img" onload="this.classList.add('loaded');this.closest('.hero').classList.remove('img-loading')" src="/images/hero-ertiga.webp" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
   <div class="hero-overlay">
     <div class="hero-name">All New Ertiga</div>
     <div class="hero-price">MULAI 241.750.000 IDR</div>
   </div>
 </div><div class="sec-desc"><p>All New Ertiga memiliki kabin yang luas untuk kenyamanan ekstra selama perjalanan. Kombinasi head unit yang canggih dengan aksen wooden panel membuat dashboard terasa mewah sekaligus elegan.</p></div><div class="sec-banner">
-  <img id="extImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+  <img id="extImg" src="/images/exterior-ertiga.webp" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-2col"><div class="col-t">Lapang, Mewah, Dan Nyaman</div><div class="col-d">Kami percaya berkendara bukan hanya sebuah perjalanan. Bersama keluarga, banyak cerita dan kehangatan tercipta dari sebuah perjalanan.</div></div><div class="sec-banner">
-  <img id="intImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+  <img id="intImg" src="/images/interior-ertiga.webp" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-ct"><h2>Elegant Interior</h2><p>Kenyamanan yang lebih baik menghabiskan waktu di perjalanan bersama keluarga semakin menyenangkan, dengan kabin yang lega serta jok yang nyaman bagaikan berada dalam ruang keluarga di rumah.</p></div><div class="color-sec">
   <div class="color-sec-title">PILIHAN WARNA</div>
   <div class="color-main-wrap"><img class="color-main" id="colorMainImg" src="" alt=""></div>
@@ -318,7 +318,7 @@ async function loadColors(){
     }
   }catch(e){console.error('loadColors:',e);}
 }
-Promise.all([loadImages(), loadColors()]);
+loadColors();
 </script>
 </body>
 </html>

@@ -217,37 +217,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div><span class="cat-label">PASSENGER CAR</span></div>
   <div class="car-grid">
     <a class="car-card" href="grand-vitara">
-      <div class="car-img-wrap"><img data-slug="grand-vitara" src="https://www.suzuki.co.id/uploads/model/listing/grand-vitara.png" alt="Grand Vitara" onerror="this.style.visibility='hidden'"></div>
+      <div class="car-img-wrap"><img src="/images/listing-vitara.png" alt="Grand Vitara"></div>
       <div class="car-name">GRAND VITARA <span>→</span></div>
       <div class="car-price">MULAI 421.900.000 IDR</div>
     </a>
     <a class="car-card" href="s-presso">
-      <div class="car-img-wrap"><img data-slug="s-presso" src="https://www.suzuki.co.id/uploads/model/listing/s-presso.png" alt="S-Presso" onerror="this.style.visibility='hidden'"></div>
+      <div class="car-img-wrap"><img src="/images/listing-spresso.png" alt="S-Presso"></div>
       <div class="car-name">S-PRESSO <span>→</span></div>
       <div class="car-price">MULAI 176.600.000 IDR</div>
     </a>
     <a class="car-card" href="apv">
-      <div class="car-img-wrap"><img data-slug="apv" src="https://www.suzuki.co.id/uploads/model/listing/apv.png" alt="APV" onerror="this.style.visibility='hidden'"></div>
+      <div class="car-img-wrap"><img src="/images/listing-apv.png" alt="APV"></div>
       <div class="car-name">APV <span>→</span></div>
       <div class="car-price">MULAI 228.200.000 IDR</div>
     </a>
     <a class="car-card" href="new-xl7">
-      <div class="car-img-wrap"><img data-slug="new-xl7" src="https://www.suzuki.co.id/uploads/model/listing/xl7.png" alt="New XL7" onerror="this.style.visibility='hidden'"></div>
+      <div class="car-img-wrap"><img src="/images/listing-xl7.png" alt="New XL7"></div>
       <div class="car-name">NEW XL7 <span>→</span></div>
       <div class="car-price">MULAI 269.900.000 IDR</div>
     </a>
     <a class="car-card" href="jimny">
-      <div class="car-img-wrap"><img data-slug="jimny" src="https://www.suzuki.co.id/uploads/model/listing/jimny.png" alt="Jimny" onerror="this.style.visibility='hidden'"></div>
+      <div class="car-img-wrap"><img src="/images/listing-jimny.png" alt="Jimny"></div>
       <div class="car-name">JIMNY <span>→</span></div>
       <div class="car-price">MULAI 511.550.000 IDR</div>
     </a>
     <a class="car-card" href="fronx">
-      <div class="car-img-wrap"><img data-slug="fronx" src="https://www.suzuki.co.id/uploads/model/listing/fronx.png" alt="Fronx" onerror="this.style.visibility='hidden'"></div>
+      <div class="car-img-wrap"><img src="/images/listing-fronx.png" alt="Fronx"></div>
       <div class="car-name">FRONX <span>→</span></div>
       <div class="car-price">MULAI 261.800.000 IDR</div>
     </a>
     <a class="car-card" href="all-new-ertiga">
-      <div class="car-img-wrap"><img data-slug="all-new-ertiga" src="https://www.suzuki.co.id/uploads/model/listing/all-new-ertiga.png" alt="Ertiga" onerror="this.style.visibility='hidden'"></div>
+      <div class="car-img-wrap"><img src="/images/listing-ertiga.png" alt="Ertiga"></div>
       <div class="car-name">ALL NEW ERTIGA <span>→</span></div>
       <div class="car-price">MULAI 241.750.000 IDR</div>
     </a>
@@ -256,12 +256,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div style="margin-top:48px;"><span class="cat-label">COMMERCIALS CAR</span></div>
   <div class="car-grid">
     <a class="car-card" href="new-carry-pick-up">
-      <div class="car-img-wrap"><img data-slug="new-carry-pick-up" src="https://www.suzuki.co.id/uploads/model/listing/carry-pick-up.png" alt="New Carry Pick Up" onerror="this.style.visibility='hidden'"></div>
+      <div class="car-img-wrap"><img src="/images/listing-carry.png" alt="New Carry Pick Up"></div>
       <div class="car-name">NEW CARRY PICK UP <span>→</span></div>
       <div class="car-price">MULAI 175.500.000 IDR</div>
     </a>
     <a class="car-card" href="carry-box">
-      <div class="car-img-wrap"><img data-slug="carry-box" src="https://www.suzuki.co.id/uploads/model/listing/carry-pick-up.png" alt="New Carry Box" onerror="this.style.visibility='hidden'"></div>
+      <div class="car-img-wrap"><img src="/images/listing-carry.png" alt="New Carry Box"></div>
       <div class="car-name">NEW CARRY BOX <span>→</span></div>
       <div class="car-price">MULAI 215.900.000 IDR</div>
     </a>
@@ -647,23 +647,6 @@ function closeLightbox(){
   document.body.style.overflow='';
 }
 loadDeliveryPhotos();
-
-// Load listing images from Supabase
-async function loadListingImages() {
-  try {
-    const r = await fetch(SB_URL+'/rest/v1/product_images?select=car_slug,img_listing', {
-      headers: {'apikey': SB_KEY, 'Authorization': 'Bearer '+SB_KEY}
-    });
-    const rows = await r.json();
-    rows.forEach(row => {
-      if (row.img_listing) {
-        const imgs = document.querySelectorAll(`[data-slug="${row.car_slug}"]`);
-        imgs.forEach(img => { img.src = row.img_listing; img.style.visibility = 'visible'; img.style.opacity = 1; });
-      }
-    });
-  } catch(e) { console.error('loadListingImages:', e); }
-}
-loadListingImages();
 </script>
 </body>
 </html>

@@ -156,15 +156,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   <a href="https://wa.me/6288224530225" target="_blank">HUBUNGI KAMI</a>
 </div><div class="hero img-loading">
-  <img id="heroImg" class="hero-img" onload="this.classList.add('loaded');this.closest('.hero').classList.remove('img-loading')" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+  <img id="heroImg" class="hero-img" onload="this.classList.add('loaded');this.closest('.hero').classList.remove('img-loading')" src="/images/hero-jimny.webp" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
   <div class="hero-overlay">
     <div class="hero-name">Jimny</div>
     <div class="hero-price">MULAI 511.550.000 IDR</div>
   </div>
 </div><div class="sec-desc"><p>Let the legend takes you, in every turn and every acceleration. Because you are not just driving, you are forging a legacy.</p></div><div class="sec-banner">
-  <img id="extImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+  <img id="extImg" src="/images/exterior-jimny.webp" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-2col"><div class="col-t">The Shape of Legacy</div><div class="col-d">With JIMNY's legendary design, cruise across any terrain with style. The tough and remarkable exterior is built to withstand any obstacle.</div></div><div class="sec-banner">
-  <img id="intImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+  <img id="intImg" src="/images/interior-jimny.webp" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-ct"><h2>Elevate The Journey Within</h2><p>This is where tech and comfort meet, crafted with premium materials. Every drive is elevated, making the exploration an unforgettable experience.</p></div><div class="color-sec">
   <div class="color-sec-title">PILIHAN WARNA</div>
   <div class="color-main-wrap"><img class="color-main" id="colorMainImg" src="" alt=""></div>
@@ -309,7 +309,7 @@ async function loadColors(){
     }
   }catch(e){console.error('loadColors:',e);}
 }
-Promise.all([loadImages(), loadColors()]);
+loadColors();
 </script>
 </body>
 </html>
