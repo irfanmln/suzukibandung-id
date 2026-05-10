@@ -198,14 +198,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HERO SLIDER -->
 <section class="hero" id="hero">
   <div class="slides" id="slides">
-    <!-- Loaded from Supabase hero_banners -->
-    <div class="slide slide-placeholder">
-      <div class="slide-text">
-        <div class="slide-sub">Dealer Resmi</div>
-        <div class="slide-title">SUZUKI<br>GEDEBAGE</div>
-        <div class="slide-price">Bandung — Jawa Barat</div>
-      </div>
-    </div>
+    <div class="slide"><img src="/images/banner-index-fronx.webp" alt="Suzuki Fronx" loading="eager"></div>
+    <div class="slide"><img src="/images/banner-index-xl7.webp" alt="Suzuki New XL7" loading="eager"></div>
   </div>
   <div class="hero-dots" id="dots"></div>
 </section>
@@ -512,35 +506,7 @@ function changeSlide(dir){current=(current+dir+total)%total;updateSlider();reset
 function goSlide(n){current=n;updateSlider();resetAuto();}
 function resetAuto(){clearInterval(autoTimer);autoTimer=setInterval(()=>changeSlide(1),5000);}
 
-// Load hero banners from Supabase
-async function loadHeroBanners(){
-  try{
-    const r=await fetch(SB_URL+'/rest/v1/hero_banners?is_active=eq.true&order=sort_order,id&select=*',{
-      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
-    });
-    const banners=await r.json();
-    if(!banners||!banners.length){initSlider();return;}
-    // Replace placeholder slide with actual banners
-    slidesEl.innerHTML='';
-    banners.forEach(b=>{
-      const slide=document.createElement('div');
-      slide.className='slide';
-      const img=document.createElement('img');
-      img.src=b.image_url;
-      img.alt='Banner';
-      img.style.width='100%';
-      img.style.height='auto';
-      img.style.display='block';
-      slide.appendChild(img);
-      slidesEl.appendChild(slide);
-    });
-    initSlider();
-  }catch(e){
-    console.error('loadHeroBanners:',e);
-    initSlider();
-  }
-}
-loadHeroBanners();
+initSlider();
 
 const heroEl=document.getElementById('hero');
 let startX=0;
