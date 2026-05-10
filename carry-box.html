@@ -118,7 +118,10 @@ footer{background:#1a3a8f;color:#fff;padding:50px 80px 90px;}
   .hero-price{font-size:15px;}
   .hero-overlay{padding:20px 16px;}
 }
-</style>
+.hero.img-loading{background:linear-gradient(90deg,#0d1a35 25%,#1a3060 50%,#0d1a35 75%);background-size:200% 100%;animation:shimmer 1.6s infinite;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+.hero-img{opacity:0;transition:opacity .5s ease;}
+.hero-img.loaded{opacity:1;}</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -140,8 +143,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="https://wa.me/6288224530225" target="_blank">HUBUNGI KAMI</a>
 </div>
 
-<div class="hero">
-  <img id="heroImg" class="hero-img" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+<div class="hero img-loading">
+  <img id="heroImg" class="hero-img" onload="this.classList.add('loaded');this.closest('.hero').classList.remove('img-loading')" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
   <div class="hero-overlay">
     <div class="hero-name">New Carry Box</div>
     <div class="hero-price">MULAI 215.900.000 IDR</div>
@@ -151,7 +154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="sec-desc"><p>New Carry Box hadir sebagai solusi angkutan niaga terpercaya untuk bisnis Anda. Dengan bak box tertutup yang kokoh, muatan Anda terlindungi dari cuaca dan debu. Mesin bertenaga, konsumsi BBM hemat, dan kabin nyaman menjadikan New Carry Box mitra bisnis yang handal setiap harinya.</p></div>
 
 <div class="sec-banner">
-  <img id="extImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;">
+  <img id="extImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div>
 
 <div class="sec-2col">
@@ -160,7 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <div class="sec-banner">
-  <img id="intImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;">
+  <img id="intImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div>
 
 <div class="sec-ct">

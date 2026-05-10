@@ -129,7 +129,10 @@ footer{background:#1a3a8f;color:#fff;padding:50px 80px 90px;}
 .ctab{padding:7px 18px;border:2px solid #1a3a8f;border-radius:20px;background:#fff;color:#1a3a8f;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;}
 .ctab.active,.ctab:hover{background:#1a3a8f;color:#fff;}
 .ctab-panel{display:none;}.ctab-panel.active{display:block;}
-</style>
+.hero.img-loading{background:linear-gradient(90deg,#0d1a35 25%,#1a3060 50%,#0d1a35 75%);background-size:200% 100%;animation:shimmer 1.6s infinite;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+.hero-img{opacity:0;transition:opacity .5s ease;}
+.hero-img.loaded{opacity:1;}</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -150,16 +153,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="index.html">HOME</a>
   
   <a href="https://wa.me/6288224530225" target="_blank">HUBUNGI KAMI</a>
-</div><div class="hero">
-  <img id="heroImg" class="hero-img" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+</div><div class="hero img-loading">
+  <img id="heroImg" class="hero-img" onload="this.classList.add('loaded');this.closest('.hero').classList.remove('img-loading')" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
   <div class="hero-overlay">
     <div class="hero-name">All New Ertiga</div>
     <div class="hero-price">MULAI 241.750.000 IDR</div>
   </div>
 </div><div class="sec-desc"><p>All New Ertiga memiliki kabin yang luas untuk kenyamanan ekstra selama perjalanan. Kombinasi head unit yang canggih dengan aksen wooden panel membuat dashboard terasa mewah sekaligus elegan.</p></div><div class="sec-banner">
-  <img id="extImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;">
+  <img id="extImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-2col"><div class="col-t">Lapang, Mewah, Dan Nyaman</div><div class="col-d">Kami percaya berkendara bukan hanya sebuah perjalanan. Bersama keluarga, banyak cerita dan kehangatan tercipta dari sebuah perjalanan.</div></div><div class="sec-banner">
-  <img id="intImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;">
+  <img id="intImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-ct"><h2>Elegant Interior</h2><p>Kenyamanan yang lebih baik menghabiskan waktu di perjalanan bersama keluarga semakin menyenangkan, dengan kabin yang lega serta jok yang nyaman bagaikan berada dalam ruang keluarga di rumah.</p></div><div class="color-sec">
   <div class="color-sec-title">PILIHAN WARNA</div>
   <div class="color-main-wrap"><img class="color-main" id="colorMainImg" src="" alt=""></div>

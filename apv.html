@@ -129,7 +129,10 @@ footer{background:#1a3a8f;color:#fff;padding:50px 80px 90px;}
 .ctab{padding:7px 18px;border:2px solid #1a3a8f;border-radius:20px;background:#fff;color:#1a3a8f;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;}
 .ctab.active,.ctab:hover{background:#1a3a8f;color:#fff;}
 .ctab-panel{display:none;}.ctab-panel.active{display:block;}
-</style>
+.hero.img-loading{background:linear-gradient(90deg,#0d1a35 25%,#1a3060 50%,#0d1a35 75%);background-size:200% 100%;animation:shimmer 1.6s infinite;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+.hero-img{opacity:0;transition:opacity .5s ease;}
+.hero-img.loaded{opacity:1;}</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -150,16 +153,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="index.html">HOME</a>
   
   <a href="https://wa.me/6288224530225" target="_blank">HUBUNGI KAMI</a>
-</div><div class="hero">
-  <img id="heroImg" class="hero-img" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+</div><div class="hero img-loading">
+  <img id="heroImg" class="hero-img" onload="this.classList.add('loaded');this.closest('.hero').classList.remove('img-loading')" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
   <div class="hero-overlay">
     <div class="hero-name">APV</div>
     <div class="hero-price">MULAI 228.200.000 IDR</div>
   </div>
 </div><div class="sec-desc"><p>Apapun bisa anda lakukan, mulai dari menyenangkan istri berbelanja, emanjakan anak-anak ke tempat rekreasi, berlibur bersama keluarga besar, hingga mengembangkan bisnis dan usaha. Berkendara terasa lebih aman dan nyaman.</p></div><div class="sec-banner">
-  <img id="extImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;">
+  <img id="extImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-2col"><div class="col-t">Semakin Berkelas dengan Tampilan Mewah</div><div class="col-d">Desain baru pada eksterior memiliki kesan yang elegan dan tangguh menjadikan New APV Arena sebagai mobil multifungsi untuk menemani setiap langkah anda.</div></div><div class="sec-banner">
-  <img id="intImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;">
+  <img id="intImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-ct"><h2>Semakin Luas Dan Nyaman</h2><p>Desain baru pada Interior berkesan elegan dengan beragam fungsi, kenyamanan serta kemewahan yang berpadu sangat indah menjadikan APV Arena tak lekang oleh waktu.</p></div><div class="color-sec">
   <div class="color-sec-title">PILIHAN WARNA</div>
   <div class="color-main-wrap"><img class="color-main" id="colorMainImg" src="" alt=""></div>

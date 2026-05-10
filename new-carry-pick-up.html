@@ -120,7 +120,10 @@ footer{background:#1a3a8f;color:#fff;padding:50px 80px 90px;}
   .hero-price{font-size:15px;}
   .hero-overlay{padding:20px 16px;}
 }
-</style>
+.hero.img-loading{background:linear-gradient(90deg,#0d1a35 25%,#1a3060 50%,#0d1a35 75%);background-size:200% 100%;animation:shimmer 1.6s infinite;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+.hero-img{opacity:0;transition:opacity .5s ease;}
+.hero-img.loaded{opacity:1;}</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -141,16 +144,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="index.html">HOME</a>
   
   <a href="https://wa.me/6288224530225" target="_blank">HUBUNGI KAMI</a>
-</div><div class="hero">
-  <img id="heroImg" class="hero-img" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+</div><div class="hero img-loading">
+  <img id="heroImg" class="hero-img" onload="this.classList.add('loaded');this.closest('.hero').classList.remove('img-loading')" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
   <div class="hero-overlay">
     <div class="hero-name">New Carry Pick Up</div>
     <div class="hero-price">MULAI 175.500.000 IDR</div>
   </div>
 </div><div class="sec-desc"><p>New Carry Pick Up hadir dengan tampilan baru yang semakin keren. Dilengkapi dengan desain grill dan bumper baru yang semakin tegas. Bikin pede bawa muatan dan kejar untung kemana pun.</p></div><div class="sec-banner">
-  <img id="extImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;">
+  <img id="extImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-2col"><div class="col-t">Tangguh dan Kuat Bawa Untung Bisnis Anda</div><div class="col-d">New Carry Pick Up kini dilengkapi dengan bak yang lebih luas dan sasis yang lebih kuat membuat kapasitas angkut hingga 1 ton. Hadir dalam varian wide deck dan flat deck yang lebih ekonomis dan dapat disesuaikan dengan bisnis Anda.</div></div><div class="sec-banner">
-  <img id="intImg" src="" alt="" style="width:100%;height:100%;object-fit:cover;">
+  <img id="intImg" src="" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
 </div><div class="sec-ct"><h2>Selalu Nyaman Saat Berkendara</h2><p>Kabin lega dengan kompartemen ergonomis bawa barang lebih praktis.</p></div><div class="color-sec">
   <div class="color-sec-title">PILIHAN WARNA</div>
   <div class="color-main-wrap">
