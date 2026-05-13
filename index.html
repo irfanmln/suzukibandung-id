@@ -83,6 +83,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--white);dis
 .delivery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
 .delivery-item:hover img{transform:scale(1.05);}
 .delivery-empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:#bbb;font-size:14px;}
+.delivery-item.hidden{display:none;}
+.btn-lihat-semua{display:block;margin:28px auto 0;padding:11px 36px;background:transparent;border:2px solid var(--blue);color:var(--blue);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background .2s,color .2s;}
+.btn-lihat-semua:hover{background:var(--blue);color:#fff;}
 /* Lightbox */
 .lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;align-items:center;justify-content:center;}
 .lb-overlay.open{display:flex;}
@@ -296,14 +299,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="delivery-item"><img src="/images/delivery-4.webp" alt="Delivery" loading="lazy"></div>
     <div class="delivery-item"><img src="/images/delivery-5.webp" alt="Delivery" loading="lazy"></div>
     <div class="delivery-item"><img src="/images/delivery-6.webp" alt="Delivery" loading="lazy"></div>
-    <div class="delivery-item"><img src="/images/delivery-7.webp" alt="Delivery" loading="lazy"></div>
-    <div class="delivery-item"><img src="/images/delivery-8.webp" alt="Delivery" loading="lazy"></div>
-    <div class="delivery-item"><img src="/images/delivery-9.webp" alt="Delivery" loading="lazy"></div>
-    <div class="delivery-item"><img src="/images/delivery-10.webp" alt="Delivery" loading="lazy"></div>
-    <div class="delivery-item"><img src="/images/delivery-11.webp" alt="Delivery" loading="lazy"></div>
-    <div class="delivery-item"><img src="/images/delivery-12.webp" alt="Delivery" loading="lazy"></div>
-    <div class="delivery-item"><img src="/images/delivery-13.webp" alt="Delivery" loading="lazy"></div>
+    <div class="delivery-item hidden"><img src="/images/delivery-7.webp" alt="Delivery" loading="lazy"></div>
+    <div class="delivery-item hidden"><img src="/images/delivery-8.webp" alt="Delivery" loading="lazy"></div>
+    <div class="delivery-item hidden"><img src="/images/delivery-9.webp" alt="Delivery" loading="lazy"></div>
+    <div class="delivery-item hidden"><img src="/images/delivery-10.webp" alt="Delivery" loading="lazy"></div>
+    <div class="delivery-item hidden"><img src="/images/delivery-11.webp" alt="Delivery" loading="lazy"></div>
+    <div class="delivery-item hidden"><img src="/images/delivery-12.webp" alt="Delivery" loading="lazy"></div>
+    <div class="delivery-item hidden"><img src="/images/delivery-13.webp" alt="Delivery" loading="lazy"></div>
   </div>
+  <button class="btn-lihat-semua" id="btnLihatSemua" onclick="lihatSemuaDelivery()">LIHAT SEMUA FOTO</button>
 </section>
 
 <!-- LIGHTBOX -->
@@ -596,6 +600,10 @@ async function submitKredit(){
 }
 
 
+function lihatSemuaDelivery(){
+  document.querySelectorAll('.delivery-item.hidden').forEach(el=>el.classList.remove('hidden'));
+  document.getElementById('btnLihatSemua').style.display='none';
+}
 function openLightbox(src){
   document.getElementById('lbImg').src=src;
   document.getElementById('lbOverlay').classList.add('open');
