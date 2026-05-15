@@ -616,6 +616,7 @@ async function submitTestDrive(){
     });
     document.getElementById('testDriveForm').style.display='none';
     document.getElementById('testDriveSuccess').style.display='block';
+    window.dataLayer=window.dataLayer||[];window.dataLayer.push({'event':'test_drive_submit'});
   }catch(err){
     alert('Gagal mengirim. Silakan coba lagi.');
     btn.disabled=false;btn.textContent='KIRIM PERMINTAAN';
@@ -640,6 +641,7 @@ async function submitKredit(){
     });
     document.getElementById('kreditForm').style.display='none';
     document.getElementById('kreditSuccess').style.display='block';
+    window.dataLayer=window.dataLayer||[];window.dataLayer.push({'event':'simulasi_kredit_submit'});
   }catch(err){
     alert('Gagal mengirim. Silakan coba lagi.');
     btn.disabled=false;btn.textContent='KIRIM PERMINTAAN';
