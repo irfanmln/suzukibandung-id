@@ -39,15 +39,15 @@ HTML_FILES = [
     'new-carry-pick-up.html',
 ]
 
-# ─── Nilai lama (dealer Gedebage) ────────────────────────
+# ─── Nilai lama (dealer Suzuki Gedebage Bandung / suzukibandung.id) ─
 OLD_VALUES = {
-    'sb_url':       'https://jglkpcywzmmaetbxwllr.supabase.co',
-    'sb_key':       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpnbGtwY3l3em1tYWV0Ynh3bGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyOTUyMjEsImV4cCI6MjA4ODg3MTIyMX0.7qL9gfM6Gjy5wBgxdlxqiW5-TXzwcOBpRcmskZw0jYQ',
-    'wa_number':    '6285173340806',
+    'sb_url':       '__SUPABASE_URL__',
+    'sb_key':       '__SUPABASE_ANON_KEY__',
+    'wa_number':    '6288901338000',
     'dealer_name':  'Suzuki Gedebage Bandung',
-    'dealer_addr':  'Jl. Soekarno-Hatta No.700, Cipamokolan, Kec. Rancasari, Kota Bandung, Jawa Barat 40292',
+    'dealer_addr':  'Jl. Soekarno Hatta No. 700, Gedebage, Kota Bandung, Jawa Barat',
     'dealer_email': 'suzukigedebage@gmail.com',
-    'dealer_phone': '+62 851-7334-0806',
+    'dealer_phone': '+62 889-0133-8000',
     'logo_url':     'https://suzukigedebage.com/wp-content/uploads/2025/06/logo-suzuki-300x57.webp',
 }
 

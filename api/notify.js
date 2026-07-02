@@ -50,7 +50,7 @@ export default async function handler(req, res) {
             </table>
           </div>
           <div style="background: #1a56db; padding: 14px; text-align: center;">
-            <p style="color: white; margin: 0; font-size: 13px;">Suzuki NJS Gedebage · suzukibandungcimahi.vercel.app</p>
+            <p style="color: white; margin: 0; font-size: 13px;">Suzuki NJS Gedebage · suzukibandung.id</p>
           </div>
         </div>
       `;
@@ -94,7 +94,7 @@ export default async function handler(req, res) {
             </table>
           </div>
           <div style="background: #1a56db; padding: 14px; text-align: center;">
-            <p style="color: white; margin: 0; font-size: 13px;">Suzuki NJS Gedebage · suzukibandungcimahi.vercel.app</p>
+            <p style="color: white; margin: 0; font-size: 13px;">Suzuki NJS Gedebage · suzukibandung.id</p>
           </div>
         </div>
       `;
