@@ -41,8 +41,8 @@ HTML_FILES = [
 
 # ─── Nilai lama (dealer Suzuki Gedebage Bandung / suzukibandung.id) ─
 OLD_VALUES = {
-    'sb_url':       '__SUPABASE_URL__',
-    'sb_key':       '__SUPABASE_ANON_KEY__',
+    'sb_url':       'https://anlhcvvuegliqbvxtquo.supabase.co',
+    'sb_key':       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFubGhjdnZ1ZWdsaXFidnh0cXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwNDQxMDEsImV4cCI6MjA5ODYyMDEwMX0.qoB11wRWNcVZCNBh9U95oABJdYN3TUn_nqHG7x_hvTc',
     'wa_number':    '6288901338000',
     'dealer_name':  'Suzuki Gedebage Bandung',
     'dealer_addr':  'Jl. Soekarno Hatta No. 700, Gedebage, Kota Bandung, Jawa Barat',
