@@ -48,7 +48,7 @@ OLD_VALUES = {
     'dealer_addr':  'Jl. Soekarno Hatta No. 700, Gedebage, Kota Bandung, Jawa Barat',
     'dealer_email': 'suzukigedebage@gmail.com',
     'dealer_phone': '+62 889-0133-8000',
-    'logo_url':     'https://suzukigedebage.com/wp-content/uploads/2025/06/logo-suzuki-300x57.webp',
+    'logo_url':     '/images/logo-suzuki.webp',
 }
 
 def get_input(label, old_value):
