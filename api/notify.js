@@ -111,7 +111,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'Suzuki NJS <onboarding@resend.dev>',
-        to: ['irfan.suzukibdg@gmail.com'],
+        to: ['euncisri1994@gmail.com'],
         subject: subject,
         html: htmlBody,
       }),
