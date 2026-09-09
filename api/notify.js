@@ -84,6 +84,10 @@ export default async function handler(req, res) {
                 <td style="padding: 10px; border-bottom: 1px solid #eee;">${record.tenor ? record.tenor + ' bulan' : '-'}</td>
               </tr>
               <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">Domisili</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${record.asal_kota || record.domisili || record.kota || '-'}</td>
+              </tr>
+              <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #555;">Pesan</td>
                 <td style="padding: 10px; border-bottom: 1px solid #eee;">${record.pesan || record.message || record.catatan || '-'}</td>
               </tr>
